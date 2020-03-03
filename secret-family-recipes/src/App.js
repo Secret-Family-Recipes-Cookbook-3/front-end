@@ -8,6 +8,8 @@ import Navigation from './components/Navigation';
 import SignUpPage from './components/SignUpPage';
 import { Route} from 'react-router-dom';
 
+
+
 function App() {
   return (
     <div className="App">
@@ -16,6 +18,7 @@ function App() {
       <Route path='/MyRecipes' component={MyRecipes} />
       <Route path='/Login' component={LogIn} />
       <Route path='/SignUpPage' component={SignUpPage} />
+
     </div>
   );
 }
