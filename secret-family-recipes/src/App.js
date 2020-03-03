@@ -1,16 +1,13 @@
 import React from 'react';
-<<<<<<< HEAD
 // import logo from './logo.svg';
 import './App.css';
-import 
-=======
-import './App.css';
 import FormikRecipeForm from "./components/AddRecipes";
->>>>>>> c902946dd293ef18a1c43228fbaae4269f6540ee
+import FormForUser from './components/SignUp';
 
 function App() {
   return (
     <div className="App">
+      <FormForUser />
       <FormikRecipeForm></FormikRecipeForm>
     </div>
   );
