@@ -9,7 +9,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Glass Antiqua', Arial, Helvetica, sans-serif;
   color: #BE6360;
 }
-
 label {
   font-family: 'Glass Antiqua', Arial, Helvetica, sans-serif;
   color: #4A3731;
@@ -33,4 +32,8 @@ h2 {
 }
 .steps {
   min-width: 30rem;
+}
+
+.Logo {
+  color: #4A3731;
 }

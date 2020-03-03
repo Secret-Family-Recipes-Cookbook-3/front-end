@@ -45,10 +45,10 @@ const UserSignupForm = ({ values, errors, touched, status }) => {
             </div>
             <div className='Sign-form'>
                 <h3>Welcome, {users.name}.</h3>
-                { <ul key={users.id}>
-                    <li>Name: {users.name}</li>
-                    <li>Email: {users.email}</li>
-                    </ul>
+                { <dl key={users.id}>
+                    <dt>Name: {users.name}</dt>
+                    <dt>Email: {users.email}</dt>
+                    </dl>
                     }
             </div>
         </div>
