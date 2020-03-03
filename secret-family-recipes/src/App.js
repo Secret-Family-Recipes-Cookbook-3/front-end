@@ -1,25 +1,17 @@
 import React from 'react';
+<<<<<<< HEAD
 // import logo from './logo.svg';
 import './App.css';
 import 
+=======
+import './App.css';
+import FormikRecipeForm from "./components/AddRecipes";
+>>>>>>> c902946dd293ef18a1c43228fbaae4269f6540ee
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FormikRecipeForm></FormikRecipeForm>
     </div>
   );
 }
