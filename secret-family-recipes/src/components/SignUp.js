@@ -67,6 +67,7 @@ export default withFormik({
         password: Yup.string().required('Password is Required')
     }),
     handleSubmit: (values, { resetForm, setStatus }) => {
+        console.log(values)
         axios.post('https://reqres.in/api/users/', values)
         .then(response => {
             resetForm();
