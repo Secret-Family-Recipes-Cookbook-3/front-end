@@ -20,7 +20,7 @@ function App() {
       <FormikRecipeForm></FormikRecipeForm>
 
       <UserSignupForm />
-      <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+      <PrivateRoute path="/dashboard" component={Dashboard}/>
       <Route exact path='/' component={UserLogin} />
       <Route path='/MyRecipes' component={MyRecipes} />
       <Route path='/Login' component={LogIn} />
