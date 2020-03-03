@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
 import axios from "axios";
+import Ingredient from "./Ingredient";
 
 const RecipeHolder = styled.div `
     display: flex;
@@ -47,11 +48,13 @@ const SubmitButton = styled.button `
     }
 `;
 
+
 const RecipeForm = ({ values, errors, touched, status }) => {
     const [recipe, setRecipe] = useState([]);
     useEffect(() => {
         status && setRecipe(recipe => [...recipe, status]);
     }, [status]);
+
     return (
         <div>
             <Title>Add a new recipe:</Title>
@@ -88,36 +91,8 @@ const RecipeForm = ({ values, errors, touched, status }) => {
                     />
                     </label>
                     <h3>Ingredients:</h3>
-                    <Ingredients>
-                        <label htmlFor="name">Name: 
-                        <Field
-                            id="name"
-                            type="text"
-                            name="name"
-                            placeholder="milk"
-                            className="input"
-                        />
-                        </label>
-                        <label htmlFor="quantity">Quantity: 
-                        <Field
-                            id="quantity"
-                            type="text"
-                            name="quantity"
-                            placeholder="1"
-                            className="input"
-                        />
-                        </label>
-                        <label htmlFor="units">Units: 
-                        <Field
-                            id="units"
-                            type="text"
-                            name="units"
-                            placeholder="cup"
-                            className="input"
-                        />
-                        </label>
-                        <AddButton>Add more ingredients</AddButton>
-                    </Ingredients>
+                    <Ingredient></Ingredient>
+                    
                     <h3>Steps:</h3>
                     <Field as="textarea" className="steps" type="text" name="steps" placeholder="Preheat the oven" />
                     <AddButton>Add another step</AddButton>
