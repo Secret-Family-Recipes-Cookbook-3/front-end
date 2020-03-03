@@ -2,8 +2,21 @@ import React, {useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import styled from "styled-components";
 
-const FormForUser = ({ values, errors, touched, status }) => {
+const SubmitButton = styled.button `
+    background-color: #BE6360;
+    color: #4A3731;
+    border-color: #9C8D84;
+    font-weight: bold;
+    margin: 0.5rem 0 0 0;
+    padding: 0.1rem 1.2rem 0.1rem 1.2rem;
+    &:hover {
+        background-color: #d97471;
+    }
+`;
+
+const UserSignupForm = ({ values, errors, touched, status }) => {
     const [users, setUsers] = useState({});
     useEffect(() => {
         status && setUsers(status);
@@ -25,9 +38,9 @@ const FormForUser = ({ values, errors, touched, status }) => {
                     {touched.password && errors.password && (
                         <p className='errors'>{errors.password}</p>
                     )}
-                    <button type='submit' disabled={values.isSubmitting}>
+                    <SubmitButton type='submit' disabled={values.isSubmitting}>
                         {values.isSubmitting ? 'Submitting' : 'Submit'}
-                    </button>
+                    </SubmitButton>
                 </Form>
             </div>
             <div className='Sign-form'>
@@ -61,4 +74,4 @@ export default withFormik({
         })
         .catch(err => console.log(err.response));
     }
-})(FormForUser);
+})(UserSignupForm);
