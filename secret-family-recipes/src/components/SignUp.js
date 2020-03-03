@@ -68,8 +68,9 @@ export default withFormik({
     }),
     handleSubmit: (values, { resetForm, setStatus }) => {
         console.log(values)
-        axios.post('https://reqres.in/api/users/', values)
+        axios.post('https://secret-family-recipes-cookbook.herokuapp.com/api/opauth/register', values)
         .then(response => {
+            console.log(response);
             resetForm();
             setStatus(response.data);
         })

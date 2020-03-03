@@ -21,7 +21,7 @@ const Navigation = () => {
         <h1 className="Logo">Secret Family Recipes</h1>
         <NavBarLink>
         <div>
-          <Link to="/">Dashboard</Link>
+          <Link to="/Dashboard">Dashboard</Link>
         </div>
         </NavBarLink>
         <NavBarLink>
@@ -36,7 +36,7 @@ const Navigation = () => {
         </NavBarLink>
         <NavBarLink>
         <div>
-          <Link to="/SignUpPage">Signup</Link>
+          <Link to="/">Signup</Link>
         </div>
         </NavBarLink>
         </NavBar>

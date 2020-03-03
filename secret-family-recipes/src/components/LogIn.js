@@ -53,8 +53,9 @@ export default withFormik({
         password: Yup.string().required('Password is Required')
     }),
     handleSubmit: (values, { resetForm, setStatus }) => {
-        axios.post('https://reqres.in/api/users/', values)
+        axios.post('https://reqres.in/api/https://secret-family-recipes-cookbook.herokuapp.com/', values)
         .then(response => {
+            console.log(response);
             resetForm();
             setStatus(response.data);
         })
