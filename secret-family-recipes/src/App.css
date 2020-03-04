@@ -40,3 +40,26 @@ h2 {
 .error {
   color: darkred;
 }
+
+.navlink {
+  text-decoration: none;
+  color: #4A3731;
+}
+.navlink:hover {
+  color: #856258;
+}
+.search {
+  display: flex;
+  width: 100%;
+  align-self: flex-end;
+}
+.steps {
+  height: 5rem;
+  width: 45rem;
+}
+.steps:active {
+  border-color: #BE6360;
+}
+.steps:hover, input:hover {
+  border-color: #BE6360;
+}

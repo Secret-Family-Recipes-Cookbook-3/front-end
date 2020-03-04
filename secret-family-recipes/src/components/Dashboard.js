@@ -4,7 +4,6 @@ import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 import AddRecipes from './AddRecipes';
 import Navigation from './Navigation';
-import SearchForm from './Search';
 import MyRecipes from './MyRecipes';
 
 function Dashboard() {
