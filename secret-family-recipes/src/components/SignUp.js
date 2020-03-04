@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+// import { axiosWithAuth } from '../utils/axiosWithAuth'
 import styled from "styled-components";
 
 const SubmitButton = styled.button `
@@ -26,7 +27,7 @@ const UserSignupForm = ({ values, errors, touched, status }) => {
         <div className='container-signup'>
             <div className = 'signup'>
                 <Form>
-                    <Field type='text' name='name' placeholder ='Name:' />
+                    <Field type='text' name='username' placeholder ='Username:' />
                     {touched.name && errors.name && (
                         <p className='errors'>{errors.name}</p>
                     )}
@@ -40,9 +41,9 @@ const UserSignupForm = ({ values, errors, touched, status }) => {
                 </Form>
             </div>
             <div className='Sign-form'>
-                <h3>Welcome, {users.name}.</h3>
+                <h3>Welcome, {users.username}.</h3>
                 { <dl key={users.id}>
-                    <dt>Name: {users.name}</dt>
+                    <dt>Name: {users.username}</dt>
                     </dl>
                     }
             </div>
@@ -52,21 +53,22 @@ const UserSignupForm = ({ values, errors, touched, status }) => {
 
 export default withFormik({
     mapPropsToValues: props => ({
-        name: '',
+        username: '',
         password: ''
     }),
     validationSchema: Yup.object().shape({
-        name: Yup.string().required('Name is Required'),
+        username: Yup.string().required('Name is Required'),
         password: Yup.string().required('Password is Required')
     }),
     handleSubmit: (values, { resetForm, setStatus }) => {
-        const sendValues = JSON.stringify(values)     
-        axios.post('https://secret-family-recipes-cookbook.herokuapp.com/api/auth/register', sendValues)
+        // let sendValues = JSON.stringify(values)     
+        // axiosWithAuth()
+        axios.post('http://secret-family-recipes-cookbook.herokuapp.com/api/auth/register', values)
         .then(response => {
             console.log(response);
             resetForm();
             setStatus(response);
         })
-        .catch(err => console.log(err.response));
+        .catch(err => console.log(err));
     }
 })(UserSignupForm);
