@@ -11,7 +11,7 @@ function SignUpPage(props) {
     .then(response => {
         console.log(response);
         alert('successfully registered!')
-        props.history.push('/Login')
+        props.history.push('/')
     })
     .catch(err => console.log(err)); 
     reset()
