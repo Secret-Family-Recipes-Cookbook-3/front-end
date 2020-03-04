@@ -1,20 +1,22 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 // import { axiosWithAuth } from '../utils/axiosWithAuth'
 import axios from 'axios';
 
-function SignUpPage(props) {
-  const {handleSubmit, register, errors, reset} = useForm();
+function LoginPage(props) {
+  const {handleSubmit, register, errors} = useForm();
+  const history = useHistory();
 
   const onSubmit = value => {
-    axios.post('https://secret-family-recipes-cookbook.herokuapp.com/api/auth/register', value)
+    console.log(value)
+    axios.post('http://secret-family-recipes-cookbook.herokuapp.com/api/auth/login', value)
     .then(response => {
         console.log(response);
-        alert('successfully registered!')
-        props.history.push('/Login')
+        window.localStorage.setItem('token', response.data.token)
+        history.push('/Dashboard')
     })
     .catch(err => console.log(err)); 
-    reset()
   }
 
   return (
@@ -49,4 +51,4 @@ function SignUpPage(props) {
   );
 }
 
-export default SignUpPage;
+export default LoginPage;

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export const axiosWithAuth = () => {
   const token = window.localStorage.getItem('token')
@@ -6,6 +6,6 @@ export const axiosWithAuth = () => {
     headers: {
       authorization: token
     },
-    baseUrl: 'https://secret-family-recipes-cookbook.herokuapp.com'
+    baseUrl: 'http://secret-family-recipes-cookbook.herokuapp.com/'
   }) 
 }
