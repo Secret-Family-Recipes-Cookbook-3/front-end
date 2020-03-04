@@ -1,5 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
+import { Link } from 'react-router-dom';
+
 import * as Yup from 'yup';
 import axios from 'axios';
 import styled from "styled-components";
@@ -17,7 +19,7 @@ const SubmitButton = styled.button `
 `;
 
 const UserLogin = ({ values, errors, touched, status }) => {
-    const [users, setUsers] = useState({});
+    const [Users, setUsers] = useState({});
     useEffect(() => {
         status && setUsers(status);
     }, [status]);
@@ -39,6 +41,9 @@ const UserLogin = ({ values, errors, touched, status }) => {
                     </SubmitButton>
                 </Form>
             </div>
+            <Link to='/'>
+                <h4>dont have an account?</h4>
+            </Link>
         </div>
     );
 };
