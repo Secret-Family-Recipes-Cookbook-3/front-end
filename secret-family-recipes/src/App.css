@@ -30,9 +30,6 @@ h2 {
 .errors {
   color: #BE6360;
 }
-.steps {
-  min-width: 30rem;
-}
 
 .Logo {
   color: #4A3731;
@@ -56,7 +53,7 @@ h2 {
 }
 .steps {
   height: 5rem;
-  width: 45rem;
+  width: 85%;
 }
 .steps:active {
   border-color: #BE6360;
