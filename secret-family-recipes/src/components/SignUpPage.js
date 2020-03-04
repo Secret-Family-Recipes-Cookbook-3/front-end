@@ -41,32 +41,6 @@ function SignUpPage (props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <NavBar2><h1 className="Logo">SIGN UP</h1></NavBar2>
-       <input
-        name="name"
-        placeholder='name'
-        ref={register({
-          required: 'Required',
-          pattern: {
-            value: /^[A-Z]/i,
-            message: "invalid name"
-          }
-        })}
-      />
-      {errors.name && errors.name.message}
-
-      <input
-        name="email"
-        placeholder='email'
-        ref={register({
-          required: 'Required',
-          pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-            message: "invalid email"
-          }
-        })}
-      />
-      {errors.email && errors.email.message}
-
       <input
         name="username"
         placeholder='username'
