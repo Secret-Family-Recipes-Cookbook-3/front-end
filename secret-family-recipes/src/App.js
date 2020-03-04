@@ -19,11 +19,11 @@ function App() {
 
       <FormikRecipeForm></FormikRecipeForm>
 
-      <UserSignupForm />
+      {/* <UserSignupForm />
       <PrivateRoute path="/dashboard" component={Dashboard}/>
       <Route exact path='/' component={UserLogin} />
       <Route path='/MyRecipes' component={MyRecipes} />
-      <Route path='/Login' component={LogIn} />
+      <Route path='/Login' component={LogIn} /> */}
       {/* <Route path='/SignUpPage' component={SignUpPage} /> */}
 
 

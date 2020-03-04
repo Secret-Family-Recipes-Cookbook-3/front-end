@@ -36,10 +36,20 @@ class Ingredient extends React.Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
+    // handleChange = (e) => {
+    //     if (["name", "quantity", "units"].includes(e.target.name)) {
+    //         let recipesList = [...this.state.recipesList]
+    //         recipesList[e.target.dataset.id][e.target.name] = e.target.value;
+    //     } else {
+    //         this.setState({ [e.target.name]: e.target.value })
+    //     }
+    // }
+
     addNewRow = (e) => {
         this.setState((prevState) => ({
             recipesList: [...prevState.recipesList, { name: "", quantity: 0, units: "" }],
         }));
+        console.log(recipesList);
     }
     
     render() {
@@ -53,7 +63,7 @@ class Ingredient extends React.Component {
                     <Ingredients key={index}>
                         <label htmlFor="name">Name: 
                         <Field
-                            //onChange = {(e)=>this.handleChange(e)}
+                            //onChange = {(e)=> this.handleChange(e)}
                             id="name"
                             type="text"
                             name="name"
