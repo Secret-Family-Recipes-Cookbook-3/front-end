@@ -1,6 +1,5 @@
 import React, {useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-// import { axiosWithAuth } from '../utils/axiosWithAuth'
 import axios from 'axios';
 import styled from "styled-components";
 
@@ -16,16 +15,16 @@ const SubmitButton = styled.button `
     }
 `;
 
-
-function SignUpPage(props) {
-  const {handleSubmit, register, errors, reset,} = useForm();
+function SignUpPage (props) {
+  const {handleSubmit, register, errors, reset} = useForm();
 
   const onSubmit = value => {
+
     axios.post('https://secret-family-recipes-cookbook.herokuapp.com/api/auth/register', value)
     .then(response => {
         console.log(response);
         alert('successfully registered!')
-        props.history.push('/Login')
+        props.history.push('/')
     })
     .catch(err => console.log(err)); 
     reset()
@@ -61,6 +60,7 @@ function SignUpPage(props) {
       />
       {errors.email && errors.email.message}
 
+      <h3>SIGN UP</h3>
       <input
         name="username"
         placeholder='username'

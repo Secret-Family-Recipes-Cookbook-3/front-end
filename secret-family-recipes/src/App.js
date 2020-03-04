@@ -2,7 +2,6 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
-import Navigation from './components/Navigation';
 import SignUpPage from './components/SignUpPage';
 import MyRecipes from './components/MyRecipes';
 import LoginPage from './components/LoginPage';
@@ -13,11 +12,12 @@ import Dashboard from './components/Dashboard';
 function App() {
   return (
     <div className="App">
-      <Navigation />
-      <PrivateRoute path="/dashboard" component={Dashboard}/>
+    <Switch>
+      <PrivateRoute path="/Dashboard" component={Dashboard}/>
+      <Route exact path='/' component={LoginPage} />
       <Route path='/MyRecipes' component={MyRecipes} />
-      <Route path='/LoginPage' component={LoginPage} />
-      <Route exact path='/' component={SignUpPage} />
+      <Route path='/SignUpPage' component={SignUpPage} />
+    </Switch>
     </div>
   );
 }
