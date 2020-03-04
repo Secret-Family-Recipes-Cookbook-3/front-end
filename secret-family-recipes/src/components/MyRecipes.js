@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import RecipeForm from './AddRecipes';
+import Navigation from './Navigation';
 
 const RecipeHolder = styled.div `
   display: flex;
@@ -10,7 +11,7 @@ const RecipeHolder = styled.div `
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 `;
 
-export default function Recipes() {
+export default function MyRecipes() {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("");
 
@@ -35,6 +36,7 @@ export default function Recipes() {
 
   return (
     <section className="recipe-list">
+      <Navigation />
       <form className="search">
         <label htmlFor="search">Find recipe:&#8201;
 
