@@ -2,7 +2,6 @@
 // import axios from 'axios';
 
 // export default function Recipes() {
-//   const [recipes, setRecipes] = useState([]);
 //   const [query, setQuery] = useState("");
 
 // useEffect(() => {
@@ -33,13 +32,17 @@
 //         placeholder='Enter Recipe' 
 //         onChange={inputHandler} />
 //         </label>
-//     </section>
+//      <div>
+// {props.recipes.map(item => (
+//     <RecipeHolder key={item.id} >
+//       <div>
 
-//     <section className='recipe-list'>
-//       {recipes.map(recipes => (
-//         <RecipeCard recipes={recipes} key={recipes.id} />
-//       ))}
-//     </section>
+//           <h1>{item.title}</h1>
+
+//       </div>
+      
+//     </RecipeHolder>
+//      ))}
 //     </div>
 //   );
 // }
