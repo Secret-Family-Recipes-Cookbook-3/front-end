@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
 import styled from "styled-components";
 
 const Ingredients = styled.div `
@@ -21,86 +20,65 @@ const AddButton = styled.button `
     }
 `;
 
-class Ingredient extends React.Component {
-
-    state = {
-        recipesList: [{
-            name: "", 
-            quantity: 0,
-            units: ""
-        }]
-    }
-
-    handleChange = (e, index) => {
-        this.state.recipesList[index] = e.target.value;
-        this.setState({ [e.target.name]: e.target.value })
-    }
-
-    // handleChange = (e) => {
-    //     if (["name", "quantity", "units"].includes(e.target.name)) {
-    //         let recipesList = [...this.state.recipesList]
-    //         recipesList[e.target.dataset.id][e.target.name] = e.target.value;
-    //     } else {
-    //         this.setState({ [e.target.name]: e.target.value })
-    //     }
-    // }
-
-    addNewRow = (e) => {
-        this.setState((prevState) => ({
-            recipesList: [...prevState.recipesList, { name: "", quantity: 0, units: "" }],
-        }));
-        console.log(recipesList);
-    }
+const Ingredient = () => {
+    const blankRecipe = {name: "", quantity: 0, units: "" };
+    const [ingredients, setIngredients] = useState([{
+        name: "", 
+        quantity: 0,
+        units: ""
+    },]);
     
-    render() {
-        let { recipesList } = this.state;
-        return (
-            <div>
-            {
-            this.state.recipesList.map((ingredient, index) => {
+    const addNewRow = () => {
+        setIngredients([...ingredients, {...blankRecipe}]);
+      };
+    
+    return (
+        <div>
+            { 
+                ingredients.map((val, idx) => {
+                    const nameID = `name-${idx}`;
+                    const quantityID = `quantity-${idx}`;
+                    const unitsID = `units-${idx}`;
                 return (
-                    
-                    <Ingredients key={index}>
-                        <label htmlFor="name">Name: 
+                    <Ingredients key={`ingredient-${idx}`}>
+                        <label htmlFor={nameID}>{`Ingredient #${idx + 1}`} 
                         <Field
-                            //onChange = {(e)=> this.handleChange(e)}
-                            id="name"
+                            id={nameID}
                             type="text"
-                            name="name"
+                            name={nameID}
+                            data-idx={idx}
                             placeholder="milk"
                             className="input"
-                            //value={ingredient.name}
                         />
                         </label>
-                        <label htmlFor="quantity">Quantity: 
+                        <label htmlFor={quantityID}>Quantity: 
                         <Field
-                            id="quantity"
+                            id={quantityID}
                             type="text"
-                            name="quantity"
+                            name={quantityID}
                             placeholder="1"
                             className="input"
-                            //value={ingredient.quantity}
+                            data-idx={idx}
                         />
                         </label>
-                        <label htmlFor="units">Units: 
+                        <label htmlFor={unitsID}>Units: 
                         <Field
-                            id="units"
+                            id={unitsID}
                             type="text"
-                            name="units"
+                            name={unitsID}
                             placeholder="cup"
                             className="input"
-                            //value={ingredient.units}
+                            data-idx={idx}
                         />
                         </label>
                     </Ingredients>
                 )
             })
-        }
+            }
         
-            <AddButton onClick = {this.addNewRow}>Add ingredient</AddButton>
-            </div>
-        )
-    };
+            <AddButton onClick = {addNewRow}>Add ingredient</AddButton>
+        </div>
+    )
 };       
 
 export default Ingredient;
