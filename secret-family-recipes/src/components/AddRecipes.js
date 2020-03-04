@@ -1,8 +1,6 @@
-import React, { useState, useEffect, Component } from "react";
-import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
+import React, { useState } from "react";
 import styled from "styled-components";
-import axios from "axios";
+import { useForm } from 'react-hook-form'
 
 
 const RecipeHolder = styled.div `
@@ -41,7 +39,7 @@ const SubmitButton = styled.button `
     color: #4A3731;
     border-color: #9C8D84;
     font-weight: bold;
-    margin: 0.5rem 0 0 0;
+    margin: 1rem 0 0 0;
     padding: 0.5rem 2rem 0.5rem 2rem;
     &:hover {
         background-color: #d97471;
@@ -49,13 +47,17 @@ const SubmitButton = styled.button `
 `;
 
 
-const RecipeForm = ({ values, errors, touched, status }) => {
+const RecipeForm = () => {
     const blankRecipe = {name: "", quantity: 0, units: "" };
     const [ingredients, setIngredients] = useState([{
         name: "", 
         quantity: 0,
         units: ""
     },]);
+
+    const { register, handleSubmit, watch, errors } = useForm();
+
+    const onSubmit = data => console.log(data)
     
     const addNewRow = () => {
         setIngredients([...ingredients, {...blankRecipe}]);
@@ -64,22 +66,22 @@ const RecipeForm = ({ values, errors, touched, status }) => {
     return (
         <div>
             <Title>Add a new recipe:</Title>
-            <Form>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <RecipeHolder>
                     <label htmlFor="title">Title: 
-                    <Field
+                    <input
+                        ref={register({ required: true })}
                         id="title"
                         type="text"
                         name="title"
                         placeholder="Title"
                         className="input"
                     />
-                    {touched.title && errors.title && (
-                        <p className="errors">{errors.title}</p>
-                    )}
+                    {errors.title && <span className="error">This field is required</span>}
                     </label>
                     <label htmlFor="category">Category: 
-                    <Field
+                    <input
+                        ref={register}
                         id="category"
                         type="text"
                         name="category"
@@ -88,7 +90,8 @@ const RecipeForm = ({ values, errors, touched, status }) => {
                     />
                     </label>
                     <label htmlFor="source">Source: 
-                    <Field
+                    <input
+                        ref={register}
                         id="source"
                         type="text"
                         name="source"
@@ -105,7 +108,8 @@ const RecipeForm = ({ values, errors, touched, status }) => {
                         return (
                             <Ingredients key={`ingredient-${idx}`}>
                                 <label htmlFor={nameID}>{`Ingredient #${idx + 1}`} 
-                                <Field
+                                <input
+                                    ref={register}
                                     id={nameID}
                                     type="text"
                                     name={nameID}
@@ -115,7 +119,8 @@ const RecipeForm = ({ values, errors, touched, status }) => {
                                 />
                                 </label>
                                 <label htmlFor={quantityID}>Quantity: 
-                                <Field
+                                <input
+                                    ref={register}
                                     id={quantityID}
                                     type="text"
                                     name={quantityID}
@@ -125,7 +130,8 @@ const RecipeForm = ({ values, errors, touched, status }) => {
                                 />
                                 </label>
                                 <label htmlFor={unitsID}>Units: 
-                                <Field
+                                <input
+                                    ref={register}
                                     id={unitsID}
                                     type="text"
                                     name={unitsID}
@@ -141,48 +147,16 @@ const RecipeForm = ({ values, errors, touched, status }) => {
         
             <AddButton onClick = {addNewRow}>Add ingredient</AddButton>
                     <h3>Steps:</h3>
-                    <Field as="textarea" className="steps" type="text" name="steps" placeholder="Preheat the oven" />
-                    <AddButton>Add another step</AddButton>
+                    <input ref={register} as="textarea" className="steps" type="text" name="steps" placeholder="Preheat the oven" />
                     <SubmitButton type="submit" className="submitbutton">Submit</SubmitButton>
                 </RecipeHolder>  
-            </Form>
+            </form>
         </div>
         
     );
 };
 
-const FormikRecipeForm = withFormik({
-    mapPropsToValues(props) {
-        return {
-            title: props.title || "",
-            category: props.category || "",
-            source: props.source || "",
-            name: props.name || "",
-            quantity: props.quantity || "",
-            units: props.units || "",
-            steps: props.steps
-        };
-    },
-    validationSchema: Yup.object().shape({
-        title: Yup.string().required("Add a recipe title"),
-        category: Yup.string(),
-        source: Yup.string(),
-        name: Yup.string(),
-        quantity: Yup.number("Should be a number"),
-        units: Yup.string(),
-        steps: Yup.string()
-    }),
-    handleSubmit(values, { setStatus, resetForm }) {
-        axios
-          .post("https://reqres.in/api/users/", values)
-          .then(res => {
-            console.log("success", res);
-            setStatus(res.data);
-            resetForm();
-          })
-          .catch(err => console.log(err.response));
-    }
-})(RecipeForm);
 
 
-export default FormikRecipeForm;
+
+export default RecipeForm;

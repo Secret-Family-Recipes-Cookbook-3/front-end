@@ -11,6 +11,7 @@ import SignUpPage from './components/SignUpPage';
 import PrivateRoute from './components/PrivateRoute'
 import { Route, Switch } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
+import AddRecipes from "./components/AddRecipes";
 
 function App() {
   return (
