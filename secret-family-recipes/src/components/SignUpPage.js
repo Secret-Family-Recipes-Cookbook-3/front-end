@@ -3,10 +3,11 @@ import { useForm } from 'react-hook-form';
 // import { axiosWithAuth } from '../utils/axiosWithAuth'
 import axios from 'axios';
 
-function SignUpPage(props) {
+function SignUpPage (props) {
   const {handleSubmit, register, errors, reset} = useForm();
 
   const onSubmit = value => {
+
     axios.post('https://secret-family-recipes-cookbook.herokuapp.com/api/auth/register', value)
     .then(response => {
         console.log(response);
@@ -19,6 +20,7 @@ function SignUpPage(props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h3>SIGN UP</h3>
       <input
         name="username"
         ref={register({

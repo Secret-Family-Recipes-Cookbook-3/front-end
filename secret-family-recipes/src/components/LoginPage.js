@@ -21,6 +21,7 @@ function LoginPage(props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h3>LOG IN</h3>
       <input
         name="username"
         ref={register({

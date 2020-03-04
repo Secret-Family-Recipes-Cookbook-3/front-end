@@ -15,13 +15,12 @@ import Dashboard from './components/Dashboard';
 function App() {
   return (
     <div className="App">
-      <Navigation />
-      <UserSignupForm />
-      <PrivateRoute path="/dashboard" component={Dashboard}/>
-      <Route exact path='/' component={UserLogin} />
+    <Switch>
+      <PrivateRoute path="/Dashboard" component={Dashboard}/>
+      <Route exact path='/' component={LoginPage} />
       <Route path='/MyRecipes' component={MyRecipes} />
-      <Route path='/Login' component={LogIn} />
       <Route path='/SignUpPage' component={SignUpPage} />
+    </Switch>
     </div>
   );
 }
