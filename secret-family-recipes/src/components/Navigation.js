@@ -23,22 +23,22 @@ const Navigation = () => {
         <h2 className="Logo">Secret Family Recipes</h2>
         <NavBarLink>
         <div>
-          <Link to="/Dashboard">Dashboard</Link>
+          <Link className="navlink" to="/Dashboard">Dashboard</Link>
         </div>
         </NavBarLink>
         <NavBarLink>
         <div>
-          <Link to="/MyRecipes">MyRecipes</Link>
+          <Link  className="navlink" to="/MyRecipes">MyRecipes</Link>
         </div>
         </NavBarLink>
         <NavBarLink>
         <div>
-          <Link to="/">Login</Link>
+          <Link className="navlink" to="/">Login</Link>
         </div>
         </NavBarLink>
         <NavBarLink>
         <div>
-          <Link to="/SignUpPage">Signup</Link>
+          <Link className="navlink" to="/SignUpPage">Signup</Link>
         </div>
         </NavBarLink>
         </NavBar>

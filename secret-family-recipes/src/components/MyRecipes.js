@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import RecipeForm from './AddRecipes';
+import AddRecipes from './AddRecipes';
 import Navigation from './Navigation';
 
 const RecipeHolder = styled.div `
@@ -29,7 +29,7 @@ export default function MyRecipes(props) {
 
   return (
     <section className="recipe-list">
-      <Navigation />
+      {/* <Navigation /> */}
       <form className="search">
         <label htmlFor="search">Find recipe:&#8201;
 
@@ -56,7 +56,7 @@ export default function MyRecipes(props) {
           </RecipeHolder>
       ))}
     </div>
-    <RecipeForm />
+    <AddRecipes />
     </section>
   );
 }

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useForm } from 'react-hook-form'
-import { axiosWithAuth } from '../utils/axiosWithAuth'
+import { useForm } from 'react-hook-form';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { connect } from 'react-redux';
 
 const RecipeHolder = styled.div `
     display: flex;
@@ -39,7 +40,7 @@ const SubmitButton = styled.button `
     color: #4A3731;
     border-color: #9C8D84;
     font-weight: bold;
-    margin: 1rem 0 0 0;
+    margin: 1rem 0 3rem 0;
     padding: 0.5rem 2rem 0.5rem 2rem;
     &:hover {
         background-color: #d97471;
@@ -71,7 +72,7 @@ const AddRecipes = () => {
             <Title>Add a new recipe:</Title>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <RecipeHolder>
-                    <label htmlFor="title">Title: 
+                    <label htmlFor="title">Title:&#8201;&#8201;&#8201;&#8201;&#8201;&#8201;&#8201;&#8201;&#8201;
                     <input
                         ref={register({ required: true })}
                         id="title"
@@ -92,7 +93,7 @@ const AddRecipes = () => {
                         className="input"
                     />
                     </label>
-                    <label htmlFor="source">Source: 
+                    <label htmlFor="source">Source:&#8201;&#8201;&#8201;&#8201; 
                     <input
                         ref={register}
                         id="source"
@@ -150,7 +151,7 @@ const AddRecipes = () => {
         
             <AddButton onClick = {addNewRow}>Add ingredient</AddButton>
                     <h3>Steps:</h3>
-                    <input ref={register} as="textarea" className="steps" type="text" name="steps" placeholder="Preheat the oven" />
+                    <textarea ref={register}  className="steps" type="text" name="steps" placeholder="Preheat the oven" />
                     <SubmitButton onClick={reset} type="submit" className="submitbutton">Submit</SubmitButton>
                 </RecipeHolder>  
             </form>
