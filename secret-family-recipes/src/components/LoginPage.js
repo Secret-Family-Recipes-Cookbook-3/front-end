@@ -10,7 +10,7 @@ function LoginPage(props) {
 
   const onSubmit = value => {
     console.log(value)
-    axios.post('http://secret-family-recipes-cookbook.herokuapp.com/api/auth/login', value)
+    axios.post('https://secret-family-recipes-cookbook.herokuapp.com/api/auth/login', value)
     .then(response => {
         console.log(response);
         window.localStorage.setItem('token', response.data.token)
@@ -21,6 +21,7 @@ function LoginPage(props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h3>LOG IN</h3>
       <input
         name="username"
         ref={register({
