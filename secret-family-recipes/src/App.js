@@ -12,18 +12,17 @@ import PrivateRoute from './components/PrivateRoute'
 import { Route, Switch, Link} from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 
-
 function App() {
   return (
     <div className="App">
 
-      <FormikRecipeForm></FormikRecipeForm>
-
-      <UserSignupForm />
-      <PrivateRoute path="/dashboard" component={Dashboard}/>
+      {/* <FormikRecipeForm></FormikRecipeForm> */}
+      <SignUpPage />
+      {/* <UserSignupForm /> */}
+      {/* <PrivateRoute path="/dashboard" component={Dashboard}/>
       <Route exact path='/' component={UserLogin} />
       <Route path='/MyRecipes' component={MyRecipes} />
-      <Route path='/Login' component={LogIn} />
+      <Route path='/Login' component={LogIn} /> */}
       {/* <Route path='/SignUpPage' component={SignUpPage} /> */}
 
 
