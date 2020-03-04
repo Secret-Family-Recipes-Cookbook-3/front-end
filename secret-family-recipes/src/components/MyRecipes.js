@@ -3,7 +3,7 @@ import RecipeForm from './AddRecipes'
 
 function MyRecipes() {
   return (
-    <div className="Dashboard">
+    <div className="MyRecipes">
       <RecipeForm />
     </div>
   );

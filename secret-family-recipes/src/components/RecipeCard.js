@@ -14,4 +14,4 @@ const RecipeCard = props => {
   );
 };
 
-export default MovieCard;
+export default RecipeCard;
