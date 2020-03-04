@@ -17,12 +17,14 @@ function App() {
     <div className="App">
 
       {/* <FormikRecipeForm></FormikRecipeForm> */}
-      <SignUpPage />
+      {/* <SignUpPage /> */}
       {/* <UserSignupForm /> */}
-      {/* <PrivateRoute path="/dashboard" component={Dashboard}/>
-      <Route exact path='/' component={UserLogin} />
-      <Route path='/MyRecipes' component={MyRecipes} />
-      <Route path='/Login' component={LogIn} /> */}
+      <Switch>
+        <PrivateRoute path="/dashboard" component={Dashboard}/>
+        <Route exact path='/' component={SignUpPage} />
+        <Route path='/MyRecipes' component={MyRecipes} />
+        <Route path='/Login' component={LogIn} />
+      </Switch>
       {/* <Route path='/SignUpPage' component={SignUpPage} /> */}
 
 

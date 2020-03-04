@@ -28,8 +28,8 @@ const UserSignupForm = ({ values, errors, touched, status }) => {
             <div className = 'signup'>
                 <Form>
                     <Field type='text' name='username' placeholder ='Username:' />
-                    {touched.name && errors.name && (
-                        <p className='errors'>{errors.name}</p>
+                    {touched.username && errors.username && (
+                        <p className='errors'>{errors.username}</p>
                     )}
                       <Field type='text' name='password' placeholder ='Password:' />
                     {touched.password && errors.password && (
@@ -63,12 +63,12 @@ export default withFormik({
     handleSubmit: (values, { resetForm, setStatus }) => {
         // let sendValues = JSON.stringify(values)     
         // axiosWithAuth()
-        axios.post('http://secret-family-recipes-cookbook.herokuapp.com/api/auth/register', values)
-        .then(response => {
-            console.log(response);
-            resetForm();
-            setStatus(response);
-        })
-        .catch(err => console.log(err));
+        // axios.post('http://secret-family-recipes-cookbook.herokuapp.com/api/auth/register', values)
+        // .then(response => {
+        //     console.log(response);
+        //     resetForm();
+        //     setStatus(response);
+        // })
+        // .catch(err => console.log(err));
     }
 })(UserSignupForm);
