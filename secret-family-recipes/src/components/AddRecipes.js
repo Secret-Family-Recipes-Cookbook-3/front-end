@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useForm } from 'react-hook-form'
-
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 const RecipeHolder = styled.div `
     display: flex;
@@ -48,6 +48,7 @@ const SubmitButton = styled.button `
 
 
 const AddRecipes = () => {
+
     const blankRecipe = {name: "", quantity: 0, units: "" };
     const [ingredients, setIngredients] = useState([{
         name: "", 
@@ -159,6 +160,18 @@ const AddRecipes = () => {
 };
 
 
+const mapStateToProps = state => {
+    return{
+        recipes: state.recipes
+    }
+
+}
 
 
-export default AddRecipes;
+
+
+export default connect(
+    mapStateToProps,
+    {}
+)(AddRecipes);
+

@@ -6,6 +6,8 @@ const NavBar= styled.div `
     display: flex;
     justify-content: space-evenly;
     background-color: #d97471;
+    border-bottom: 3px solid #4A3731;
+    margin-bottom: 10px;
 `;
 
 const NavBarLink= styled.div `
@@ -18,7 +20,7 @@ const Navigation = () => {
     <div>
       <div className="App">
       <NavBar>
-        <h1 className="Logo">Secret Family Recipes</h1>
+        <h2 className="Logo">Secret Family Recipes</h2>
         <NavBarLink>
         <div>
           <Link to="/Dashboard">Dashboard</Link>
@@ -31,12 +33,12 @@ const Navigation = () => {
         </NavBarLink>
         <NavBarLink>
         <div>
-          <Link to="/Login">Login</Link>
+          <Link to="/">Login</Link>
         </div>
         </NavBarLink>
         <NavBarLink>
         <div>
-          <Link to ="/">Signup</Link>
+          <Link to="/SignUpPage">Signup</Link>
         </div>
         </NavBarLink>
         </NavBar>

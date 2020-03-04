@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import RecipeForm from './AddRecipes';
+import Navigation from './Navigation';
 
 const RecipeHolder = styled.div `
   display: flex;
@@ -18,6 +20,7 @@ export default function MyRecipes(props) {
           rec.title.toLowerCase().includes(query.toLowerCase())
         );
         props.setRecipes(recipesList);
+
   }, [query]);
 
   const handleInputChange = event => {
@@ -25,7 +28,8 @@ export default function MyRecipes(props) {
   };
 
   return (
-    <section className="character-list">
+    <section className="recipe-list">
+      <Navigation />
       <form className="search">
         <label htmlFor="search">Find recipe:&#8201;
 
@@ -47,10 +51,12 @@ export default function MyRecipes(props) {
           <RecipeHolder key={item.id} >
             <div>
                 <h1>{item.title}</h1>
+
             </div>
           </RecipeHolder>
       ))}
     </div>
+    <RecipeForm />
     </section>
   );
 }
