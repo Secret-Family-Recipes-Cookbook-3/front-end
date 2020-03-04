@@ -47,7 +47,7 @@ const SubmitButton = styled.button `
 `;
 
 
-const RecipeForm = () => {
+const AddRecipes = () => {
     const blankRecipe = {name: "", quantity: 0, units: "" };
     const [ingredients, setIngredients] = useState([{
         name: "", 
@@ -55,9 +55,11 @@ const RecipeForm = () => {
         units: ""
     },]);
 
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit, watch, errors, reset } = useForm();
 
-    const onSubmit = data => console.log(data)
+    const onSubmit = data => {
+        console.log(data);
+    }
     
     const addNewRow = () => {
         setIngredients([...ingredients, {...blankRecipe}]);
@@ -148,7 +150,7 @@ const RecipeForm = () => {
             <AddButton onClick = {addNewRow}>Add ingredient</AddButton>
                     <h3>Steps:</h3>
                     <input ref={register} as="textarea" className="steps" type="text" name="steps" placeholder="Preheat the oven" />
-                    <SubmitButton type="submit" className="submitbutton">Submit</SubmitButton>
+                    <SubmitButton onClick={reset} type="submit" className="submitbutton">Submit</SubmitButton>
                 </RecipeHolder>  
             </form>
         </div>
@@ -159,4 +161,4 @@ const RecipeForm = () => {
 
 
 
-export default RecipeForm;
+export default AddRecipes;

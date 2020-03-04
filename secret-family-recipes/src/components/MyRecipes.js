@@ -1,31 +1,23 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import styled from "styled-components";
 
 const RecipeHolder = styled.div `
   display: flex;
   align-items: center;
   margin: 3%;
+  padding-left: 3rem;
+  border-radius: 10px;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 `;
 
-export default function Recipes() {
-  const [recipes, setRecipes] = useState([]);
-  const [query, setQuery] = useState("");
+export default function MyRecipes(props) {
+    const [query, setQuery] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`https://secret-family-recipes-cookbook.herokuapp.com/api/recipes`)
-      .then(response => {
-        console.log("recipies", response);
-        const recipesList = response.filter(rec =>
-          rec.name.toLowerCase().includes(query.toLowerCase())
+        const recipesList = props.recipes.filter(rec =>
+          rec.title.toLowerCase().includes(query.toLowerCase())
         );
-        setRecipes(recipesList);
-      })
-      .catch(error => {
-        console.log("the data was not return", error);
-      });
+        props.setRecipes(recipesList);
   }, [query]);
 
   const handleInputChange = event => {
@@ -51,10 +43,10 @@ export default function Recipes() {
         </label>
       </form>
       <div>
-        {recipes.map(item => (
+        {props.recipes.map(item => (
           <RecipeHolder key={item.id} >
             <div>
-                <p>here will go recipes cards</p>
+                <h1>{item.title}</h1>
             </div>
           </RecipeHolder>
       ))}
