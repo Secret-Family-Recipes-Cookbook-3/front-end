@@ -3,6 +3,15 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import styled from "styled-components";
 
+const NavBar2= styled.div `
+    background-color: #d97471;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 30px;
+    border-bottom: 3px solid #4A3731;
+    margin-bottom: 10px;
+`;
+
 const SubmitButton = styled.button `
     background-color: #BE6360;
     color: #4A3731;
@@ -19,7 +28,6 @@ function SignUpPage (props) {
   const {handleSubmit, register, errors, reset} = useForm();
 
   const onSubmit = value => {
-
     axios.post('https://secret-family-recipes-cookbook.herokuapp.com/api/auth/register', value)
     .then(response => {
         console.log(response);
@@ -31,9 +39,8 @@ function SignUpPage (props) {
   }
 
   return (
-    <div className='signup-container'>
-    <div className='signup'>
     <form onSubmit={handleSubmit(onSubmit)}>
+      <NavBar2><h1 className="Logo">SIGN UP</h1></NavBar2>
        <input
         name="name"
         placeholder='name'
@@ -60,7 +67,6 @@ function SignUpPage (props) {
       />
       {errors.email && errors.email.message}
 
-      <h3>SIGN UP</h3>
       <input
         name="username"
         placeholder='username'
@@ -90,16 +96,6 @@ function SignUpPage (props) {
 
      <SubmitButton type="submit">Submit</SubmitButton>
     </form>
-    </div>
-    <div className='Sign-form'>
-              <h3>Welcome, {props.name}.</h3>
-          { <dl key={props.id}>  
-              <dt>Username: {props.username}</dt>
-              <dt>Email: {props.email}</dt>
-            </dl>
-          }
-      </div>
-    </div>
   );
 }
 

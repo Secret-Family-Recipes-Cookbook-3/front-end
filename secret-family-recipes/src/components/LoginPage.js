@@ -1,9 +1,18 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-// import { axiosWithAuth } from '../utils/axiosWithAuth'
+// import { axiosWithAuth } from '../utils/axiosWithAuth';
 import axios from 'axios';
 import styled from "styled-components";
+
+const NavBar2= styled.div `
+    background-color: #d97471;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 30px;
+    border-bottom: 3px solid #4A3731;
+    margin-bottom: 10px;
+`;
 
 const SubmitButton = styled.button `
     background-color: #BE6360;
@@ -34,7 +43,7 @@ function LoginPage(props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <h3>LOG IN</h3>
+      <NavBar2><h1 className="Logo">LOG IN</h1></NavBar2>
       <input
         name="username"
         placeholder='username'
