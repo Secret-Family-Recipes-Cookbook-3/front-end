@@ -1,11 +1,51 @@
 import React from 'react';
-// import UserSignupForm from './SignUp';
+import { useForm } from 'react-hook-form';
+// import { axiosWithAuth } from '../utils/axiosWithAuth'
+import axios from 'axios';
 
-function SignUpPage() {
+function SignUpPage(props) {
+  const {handleSubmit, register, errors, reset} = useForm();
+
+  const onSubmit = value => {
+    axios.post('https://secret-family-recipes-cookbook.herokuapp.com/api/auth/register', value)
+    .then(response => {
+        console.log(response);
+        alert('successfully registered!')
+        props.history.push('/Login')
+    })
+    .catch(err => console.log(err)); 
+    reset()
+  }
+
   return (
-    <div className="SignUp">
-      {/* <UserSignupForm /> */}
-    </div>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        name="username"
+        ref={register({
+          required: 'Required',
+          pattern: {
+            value: /^[A-Z0-9]/i,
+            message: "invalid username"
+          }
+        })}
+      />
+      {errors.username && errors.username.message}
+
+      <input
+        name="password"
+        type="password"
+        ref={register({
+          required: 'Required',
+          pattern: {
+            value: /^[A-Z0-9]/i,
+            message: "invalid password"
+          }
+        })}
+      />
+      {errors.password && errors.password.message}
+
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 
