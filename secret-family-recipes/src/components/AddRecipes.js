@@ -184,5 +184,4 @@ const FormikRecipeForm = withFormik({
     }
 })(RecipeForm);
 
-
 export default FormikRecipeForm;

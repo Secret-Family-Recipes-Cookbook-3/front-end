@@ -31,7 +31,7 @@ const Navigation = () => {
         </NavBarLink>
         <NavBarLink>
         <div>
-          <Link to="/Login">Login</Link>
+          <Link to="/LoginPage">Login</Link>
         </div>
         </NavBarLink>
         <NavBarLink>
