@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import RecipeForm from './AddRecipes';
 
 const RecipeHolder = styled.div `
   display: flex;
@@ -17,14 +18,14 @@ export default function Recipes() {
     axios
       .get(`https://secret-family-recipes-cookbook.herokuapp.com/api/recipes`)
       .then(response => {
-        console.log("recipies", response);
+        console.log("recipes", response);
         const recipesList = response.filter(rec =>
           rec.name.toLowerCase().includes(query.toLowerCase())
         );
         setRecipes(recipesList);
       })
       .catch(error => {
-        console.log("the data was not return", error);
+        console.log("the data was not returned", error);
       });
   }, [query]);
 
@@ -33,7 +34,7 @@ export default function Recipes() {
   };
 
   return (
-    <section className="character-list">
+    <section className="recipe-list">
       <form className="search">
         <label htmlFor="search">Find recipe:&#8201;
 
@@ -54,11 +55,12 @@ export default function Recipes() {
         {recipes.map(item => (
           <RecipeHolder key={item.id} >
             <div>
-                <p>here will go recipes cards</p>
+                <p>Recipe Cards Here</p>
             </div>
           </RecipeHolder>
       ))}
     </div>
+    <RecipeForm />
     </section>
   );
 }
