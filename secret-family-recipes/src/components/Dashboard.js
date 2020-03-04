@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { axiosWithAuth } from '../utils/axiosWithAuth'
+
 import RecipeForm from './AddRecipes';
 import Navigation from './Navigation';
 import SearchForm from './Search';
@@ -8,8 +10,11 @@ function Dashboard() {
   const [recipe, setRecipe] = useState([])
 
   useEffect(() => {
-    axios.get('https://reqres.in/api/https://secret-family-recipes-cookbook.herokuapp.com/')
-    .then(response => setRecipe(response.data))
+    axiosWithAuth()
+    .get('https://secret-family-recipes-cookbook.herokuapp.com/api/recipes')
+    .then(response => 
+      console.log(response.data)
+      )
     .catch(error=> console.log(error));
   }, []);
 
