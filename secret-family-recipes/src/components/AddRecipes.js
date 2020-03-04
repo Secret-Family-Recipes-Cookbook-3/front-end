@@ -3,7 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import styled from "styled-components";
 import axios from "axios";
-import Ingredient from "./Ingredient";
+
 
 const RecipeHolder = styled.div `
     display: flex;
@@ -50,10 +50,16 @@ const SubmitButton = styled.button `
 
 
 const RecipeForm = ({ values, errors, touched, status }) => {
-    const [recipe, setRecipe] = useState([]);
-    useEffect(() => {
-        status && setRecipe(recipe => [...recipe, status]);
-    }, [status]);
+    const blankRecipe = {name: "", quantity: 0, units: "" };
+    const [ingredients, setIngredients] = useState([{
+        name: "", 
+        quantity: 0,
+        units: ""
+    },]);
+    
+    const addNewRow = () => {
+        setIngredients([...ingredients, {...blankRecipe}]);
+      };
 
     return (
         <div>
@@ -91,8 +97,49 @@ const RecipeForm = ({ values, errors, touched, status }) => {
                     />
                     </label>
                     <h3>Ingredients:</h3>
-                    <Ingredient></Ingredient>
-                    
+                    { 
+                        ingredients.map((val, idx) => {
+                            const nameID = `name-${idx}`;
+                            const quantityID = `quantity-${idx}`;
+                            const unitsID = `units-${idx}`;
+                        return (
+                            <Ingredients key={`ingredient-${idx}`}>
+                                <label htmlFor={nameID}>{`Ingredient #${idx + 1}`} 
+                                <Field
+                                    id={nameID}
+                                    type="text"
+                                    name={nameID}
+                                    data-idx={idx}
+                                    placeholder="milk"
+                                    className="input"
+                                />
+                                </label>
+                                <label htmlFor={quantityID}>Quantity: 
+                                <Field
+                                    id={quantityID}
+                                    type="text"
+                                    name={quantityID}
+                                    placeholder="1"
+                                    className="input"
+                                    data-idx={idx}
+                                />
+                                </label>
+                                <label htmlFor={unitsID}>Units: 
+                                <Field
+                                    id={unitsID}
+                                    type="text"
+                                    name={unitsID}
+                                    placeholder="cup"
+                                    className="input"
+                                    data-idx={idx}
+                                />
+                                </label>
+                            </Ingredients>
+                        )
+                    })
+                    }
+        
+            <AddButton onClick = {addNewRow}>Add ingredient</AddButton>
                     <h3>Steps:</h3>
                     <Field as="textarea" className="steps" type="text" name="steps" placeholder="Preheat the oven" />
                     <AddButton>Add another step</AddButton>
