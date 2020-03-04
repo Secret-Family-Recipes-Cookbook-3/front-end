@@ -36,7 +36,7 @@ const Navigation = () => {
         </NavBarLink>
         <NavBarLink>
         <div>
-          <Link to="/">Signup</Link>
+          <Link to ="/">Signup</Link>
         </div>
         </NavBarLink>
         </NavBar>
