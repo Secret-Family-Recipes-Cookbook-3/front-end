@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import RecipeForm from './AddRecipes';
-import Navigation from './Navigation';
+import AddRecipes from './AddRecipes';
 
 const RecipeHolder = styled.div `
   display: flex;
@@ -29,10 +28,8 @@ export default function MyRecipes(props) {
 
   return (
     <section className="recipe-list">
-      <Navigation />
       <form className="search">
         <label htmlFor="search">Find recipe:&#8201;
-
         <input
           id="search"
           type="text"
@@ -50,13 +47,15 @@ export default function MyRecipes(props) {
         {props.recipes.map(item => (
           <RecipeHolder key={item.id} >
             <div>
+
                 <h1>{item.title}</h1>
 
             </div>
+            
           </RecipeHolder>
       ))}
     </div>
-    <RecipeForm />
+    <AddRecipes />
     </section>
   );
 }

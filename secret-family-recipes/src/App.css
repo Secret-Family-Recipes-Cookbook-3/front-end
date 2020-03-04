@@ -40,3 +40,11 @@ h2 {
 .error {
   color: darkred;
 }
+
+.navlink {
+  text-decoration: none;
+  color: #4A3731;
+}
+.navlink:hover {
+  color: #856258;
+}
