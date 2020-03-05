@@ -80,9 +80,9 @@ function LoginPage(props) {
         </LogoHolder>  
       </NavBar2>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="login-form">
 
-        <label htmlFor="username">Username:
+        <label htmlFor="username">Username:&#8201;&#8201;&#8201;
           <input
             id="username"
             name="username"
@@ -98,7 +98,7 @@ function LoginPage(props) {
         </label>
         {errors.username && errors.username.message}
 
-        <label htmlFor="password">Password:
+        <label htmlFor="password">Password:&#8201;&#8201;&#8201;&#8201;
           <input
             id="password"
             name="password"
@@ -115,11 +115,11 @@ function LoginPage(props) {
         </label>
         {errors.password && errors.password.message}
 
-
-        <SubmitButton type="submit">Submit</SubmitButton>
-        <Link to='/signuppage' >
-        <h3>Dont have an account yet?</h3>
-      </Link>
+        <SubmitButton type="submit" className="submitbutton" >Submit</SubmitButton>
+        
+        <Link to='/signuppage' className="loglink" >
+          <h3>Dont have an account yet?</h3>
+        </Link>
       </form>
     </Body>
 
