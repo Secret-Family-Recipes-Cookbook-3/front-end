@@ -41,12 +41,16 @@ h2 {
 
 .navlink {
   text-decoration: none;
+  font-family: 'Glass Antiqua', Arial, Helvetica, sans-serif;
   color: #4A3731;
+  font-weight: bold;
+  font-size: 1.4rem;
 }
+
 .navlink:hover {
   color: #856258;
-
 }
+
 .search {
   display: flex;
   width: 100%;
@@ -54,7 +58,7 @@ h2 {
 }
 .steps {
   height: 5rem;
-  width: 85%;
+  width: 84%;
 }
 .steps:active {
   border-color: #BE6360;

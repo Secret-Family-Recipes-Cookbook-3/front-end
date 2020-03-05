@@ -6,6 +6,7 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 import Card2 from "../images/card2.jpg";
 
 
+
 const RecipeHolder = styled.div `
     display: flex;
     flex-direction: column;
@@ -43,6 +44,11 @@ const RecipeCard = styled.div `
 
 const Title = styled.h2 `
     margin-left: 3rem;
+    margin-left: 2rem;
+`;
+
+const Title = styled.h2 `
+    margin-left: 2rem;
 `;
 
 const Ingredients = styled.div `
@@ -54,15 +60,14 @@ const Ingredients = styled.div `
 
 const AddButton = styled.button `
     display:block;
-    background:none;
-    border:none;
-    margin:0;
-    padding:0;
+    background-color: #BE6360;
+    border-color: #9C8D84;
+    padding: 0.25rem 1rem 0.25rem 1rem;
     cursor: pointer;
     color: #4A3731;
     font-weight: bold;
     &:hover {
-        color: #d97471;
+        background-color: #d97471;
     }
 `;
 

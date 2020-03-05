@@ -61,6 +61,21 @@ const Navigation = () => {
               </div>
             </NavBarLink>
           </LinkHolder>
+      <NavBar>
+          <h2 className="Logo">Secret Family Recipes</h2>
+      
+        <NavBarLink>
+        <div>
+          <Link className="navlink" to="/Dashboard">Dashboard</Link>
+        </div>
+        </NavBarLink>
+    
+        <NavBarLink>
+        <div>
+          <Link className="navlink" to="/">Logout</Link>
+        </div>
+        </NavBarLink>
+
         </NavBar>
       </div>
     </div>
