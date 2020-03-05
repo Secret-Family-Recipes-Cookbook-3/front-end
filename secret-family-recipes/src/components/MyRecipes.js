@@ -3,6 +3,7 @@ import styled from "styled-components";
 import AddRecipes from './AddRecipes';
 import Card6 from "../images/card6.jpg";
 
+
 const SearchHolder =styled.div `
   align-items: center;
   padding: 2rem;
@@ -76,7 +77,7 @@ export default function MyRecipes(props) {
       <Wrapper>
         {props.recipes.map(item => (
           <RecipeHolder key={item.id} >
-            <div>
+            <div className='recipeCardAnimate'>
               <h2>{item.title}</h2>
               <p>From my beloved {item.source}</p>
             </div>

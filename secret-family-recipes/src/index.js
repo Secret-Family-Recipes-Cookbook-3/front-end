@@ -8,8 +8,11 @@ import {recipesReducer} from './reducers/RecipeReducer'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import gsap from 'gsap';
 
 const store = createStore(recipesReducer);
+
+gsap.to('.recipeCardAnimate', {duration: 2, rotateX: 360, ease: 'elastic(1, 0.75)'}).restart();
 
 ReactDOM.render(
 <Provider store={store}>
