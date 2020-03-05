@@ -8,7 +8,6 @@ const NavBar= styled.div `
     justify-content: space-evenly;
     background-color: #d97471;
     border-bottom: 3px solid #4A3731;
-    margin-bottom: 10px;
     @media(max-width:750px) {
       flex-direction: column;
     }
@@ -61,7 +60,7 @@ const Navigation = () => {
               </div>
             </NavBarLink>
           </LinkHolder>
-          </NavBar>
+        </NavBar>
       </div>
     </div>
   );
