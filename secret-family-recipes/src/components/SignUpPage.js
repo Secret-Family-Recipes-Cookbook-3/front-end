@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from "styled-components";
 
@@ -69,6 +70,9 @@ function SignUpPage (props) {
       {errors.password && errors.password.message}
 
      <SubmitButton type="submit">Submit</SubmitButton>
+      <Link to='/' >
+        <h3>Have an account already?</h3>
+      </Link>
     </form>
   );
 }
