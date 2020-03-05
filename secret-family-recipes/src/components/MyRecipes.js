@@ -5,8 +5,8 @@ import Card6 from "../images/card6.jpg";
 
 const SearchHolder =styled.div `
   align-items: center;
-  margin: 1rem;
-  margin-left: 5rem;
+  padding: 2rem;
+  margin-left: 1rem;
   padding-left: 2rem;
   width: 50%;
   font-size: 1.2rem;
@@ -36,17 +36,7 @@ const RecipeHolder = styled.div `
 const Wrapper = styled.div `
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem;
-    margin-left: 21%;
-    padding-left: 3%;
-    padding-right: 3%;
-    border-radius: 10px;
-    width: 50%;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+     margin-left: 2rem;
 `;
 
 export default function MyRecipes(props) {
