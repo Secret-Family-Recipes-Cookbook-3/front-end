@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useForm } from 'react-hook-form'
 import { connect } from 'react-redux';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import Card2 from "../images/card2.jpg";
+
 
 
 const RecipeHolder = styled.div `
@@ -10,6 +13,37 @@ const RecipeHolder = styled.div `
     justify-content: flex-start;
     align-items: flex-start;
     max-width: 900px;
+    margin-left: 3rem;
+`;
+
+const RecipeCard = styled.div `
+    width: 60%;
+    box-shadow: 0 6px 15px rgba(170, 170, 170, 0.3), 0 15px 12px rgba(170, 170, 170, 0.22);
+    background-image: url(${Card2});
+    margin-left: 2rem;
+    padding-top: 1rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+    @media(max-width:1400px) {
+        width: 80%;
+    }
+    @media(max-width:1000px) {
+        width: 700px;
+    }
+    @media(max-width:800px) {
+        width: 500px;
+    }
+    @media(max-width:550px) {
+        width: 300px;
+    }
+    @media(max-width:550px) {
+        width: 90%;
+        margin-left: 3%;
+    }
+`;
+
+const Title = styled.h2 `
+    margin-left: 3rem;
     margin-left: 2rem;
 `;
 
@@ -19,6 +53,9 @@ const Title = styled.h2 `
 
 const Ingredients = styled.div `
     display: flex;
+    @media(max-width:800px) {
+        flex-direction: column;
+    }
 `;
 
 const AddButton = styled.button `
@@ -39,6 +76,7 @@ const SubmitButton = styled.button `
     color: #4A3731;
     border-color: #9C8D84;
     font-weight: bold;
+    cursor:pointer;
     margin: 1rem 0 3rem 0;
     padding: 0.5rem 2rem 0.5rem 2rem;
     &:hover {
@@ -68,6 +106,7 @@ const AddRecipes = () => {
 
     return (
         <div>
+        <RecipeCard>
             <Title>Add a new recipe:</Title>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <RecipeHolder>
@@ -154,8 +193,8 @@ const AddRecipes = () => {
                     <SubmitButton onClick={reset} type="submit" className="submitbutton">Submit</SubmitButton>
                 </RecipeHolder>  
             </form>
+        </RecipeCard>
         </div>
-        
     );
 };
 
