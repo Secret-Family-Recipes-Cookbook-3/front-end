@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import RecipeCard from './RecipeCard';
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 import AddRecipes from './AddRecipes';
@@ -22,7 +23,6 @@ function Dashboard() {
     <div className="Dashboard">
       <Navigation />
       <MyRecipes recipes={recipes} setRecipes={setRecipes} />
-
     </div>
   );
 }
