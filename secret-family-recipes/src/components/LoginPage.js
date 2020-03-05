@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 // import { axiosWithAuth } from '../utils/axiosWithAuth';
 import axios from 'axios';
 import styled from "styled-components";
@@ -116,8 +116,12 @@ function LoginPage(props) {
         {errors.password && errors.password.message}
 
         <SubmitButton type="submit">Submit</SubmitButton>
+      <Link to='/signuppage' >
+        <h3>Dont have an account yet?</h3>
+      </Link>
       </form>
     </Body>
+
   );
 }
 
