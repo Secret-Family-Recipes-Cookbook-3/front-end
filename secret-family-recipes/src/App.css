@@ -7,12 +7,13 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Glass Antiqua', Arial, Helvetica, sans-serif;
-  color: #BE6360;
+  color: #c43d39;
 }
 label {
   font-family: 'Glass Antiqua', Arial, Helvetica, sans-serif;
-  color: #4A3731;
+  color: #382a25;
   font-weight: bold;
+  font-size: 1.3rem;;
 }
 
 .input {
@@ -60,5 +61,18 @@ h2 {
 }
 .steps:hover, input:hover {
   border-color: #BE6360;
-
+}
+#recipe-list {
+  background-image: url("./images/bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 3rem;
+  width: 100%;
+  min-height: 100vh;
+}
+.recipes-list {
+  border: solid black 1px;
+  background-color: darkred;
 }
