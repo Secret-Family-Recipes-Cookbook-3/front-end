@@ -33,14 +33,31 @@ const LogoImg = styled.img `
   max-width: 100px;
   height: auto;
   margin-right: 2rem;
+  @media(max-width: 600px) {
+    height: 60px;
+    width: 60px;
+    margin-top: 3%;
+  }
 `;
 
 const LogoHolder = styled.div `
   display: flex;
+  @media(max-width: 400px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
 `;
 
 const Login = styled.h1 `
     margin-left: 30%;
+    @media(max-width:800px) {
+      margin-left: 10%;
+    }
+    @media(max-width: 400px) {
+      margin: 0;
+    }
 `;
 
 const Body = styled.div `
