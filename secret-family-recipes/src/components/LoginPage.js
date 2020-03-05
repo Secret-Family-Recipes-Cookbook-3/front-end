@@ -1,11 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 // import { axiosWithAuth } from '../utils/axiosWithAuth';
 import axios from 'axios';
 import styled from "styled-components";
 import Logo from "../images/logo.png";
 import Loginbg from "../images/loginbg.jpg";
+import { Link } from 'react-router-dom';
 
 const NavBar2= styled.div `
     background-color: #d97471;

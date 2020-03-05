@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from "styled-components";
 import Signupbg from "../images/signupbg.jpg";
@@ -22,6 +23,7 @@ const LogoImg = styled.img `
 
 const LogoHolder = styled.div `
   display: flex;
+  @media()
 `;
 
 const Login = styled.h1 `
