@@ -8,7 +8,6 @@ import {recipesReducer} from './reducers/RecipeReducer'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
 const store = createStore(recipesReducer);
 
 ReactDOM.render(

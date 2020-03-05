@@ -76,7 +76,7 @@ export default function MyRecipes(props) {
       <Wrapper>
         {props.recipes.map(item => (
           <RecipeHolder key={item.id} >
-            <div>
+            <div className='recipeCardAnimate'>
               <h2>{item.title}</h2>
               <p>From my beloved {item.source}</p>
             </div>
