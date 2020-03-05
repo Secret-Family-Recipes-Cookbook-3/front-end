@@ -135,7 +135,7 @@ function LoginPage(props) {
 
         <SubmitButton type="submit" className="submitbutton" >Submit</SubmitButton>
         
-        <Link to='/signuppage' className="loglink" >
+        <Link to='/sign-up-page' className="loglink" >
           <h3>Dont have an account yet?</h3>
         </Link>
       </form>
