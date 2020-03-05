@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom';
 // import { axiosWithAuth } from '../utils/axiosWithAuth';
 import axios from 'axios';
 import styled from "styled-components";
+import Logo from "../images/logo.png";
+import Loginbg from "../images/loginbg.jpg";
+import { Link } from 'react-router-dom';
 
 const NavBar2= styled.div `
     background-color: #d97471;
@@ -26,6 +29,50 @@ const SubmitButton = styled.button `
     }
 `;
 
+const LogoImg = styled.img `
+  max-width: 100px;
+  height: auto;
+  margin-right: 2rem;
+  @media(max-width: 600px) {
+    height: 60px;
+    width: 60px;
+    margin-top: 3%;
+  }
+`;
+
+const LogoHolder = styled.div `
+  display: flex;
+  @media(max-width: 400px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+`;
+
+const Login = styled.h1 `
+    margin-left: 30%;
+    @media(max-width:800px) {
+      margin-left: 10%;
+    }
+    @media(max-width: 400px) {
+      margin: 0;
+    }
+`;
+
+const Body = styled.div `
+    background-image: url(${Loginbg});
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 3rem;
+    width: 100%;
+    min-height: 94.9vh;
+`;
+
+const FormHolder = styled.div
+
 function LoginPage(props) {
   const {handleSubmit, register, errors} = useForm();
   const history = useHistory();
@@ -42,37 +89,59 @@ function LoginPage(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <NavBar2><h1 className="Logo">LOG IN</h1></NavBar2>
-      <input
-        name="username"
-        placeholder='username'
-        ref={register({
-          required: 'Required',
-          pattern: {
-            value: /^[A-Z0-9]/i,
-            message: "invalid username"
-          }
-        })}
-      />
-      {errors.username && errors.username.message}
+    <Body>
+      <NavBar2>
+        <LogoHolder>
+          <LogoImg src={Logo} alt="cherry pie logo" />
+          <h2 className="Logo">Secret Family Recipes</h2>
+          <Login className="Logo">LOG IN</Login>
+        </LogoHolder>  
+      </NavBar2>
 
-      <input
-        name="password"
-        type="password"
-        placeholder='password'
-        ref={register({
-          required: 'Required',
-          pattern: {
-            value: /^[A-Z0-9]/i,
-            message: "invalid password"
-          }
-        })}
-      />
-      {errors.password && errors.password.message}
+      <form onSubmit={handleSubmit(onSubmit)} className="login-form">
 
-      <SubmitButton type="submit">Submit</SubmitButton>
-    </form>
+        <label htmlFor="username">Username:&#8201;&#8201;&#8201;
+          <input
+            id="username"
+            name="username"
+            placeholder='username'
+            ref={register({
+              required: 'Required',
+              pattern: {
+                value: /^[A-Z0-9]/i,
+                message: "invalid username"
+              }
+            })}
+          />
+        </label>
+        {errors.username && errors.username.message}
+
+        <label htmlFor="password">Password:&#8201;&#8201;&#8201;&#8201;
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder='password'
+            ref={register({
+              required: 'Required',
+              pattern: {
+                value: /^[A-Z0-9]/i,
+                message: "invalid password"
+              }
+            })}
+          />
+        </label>
+        {errors.password && errors.password.message}
+
+        <SubmitButton type="submit" className="submitbutton" >Submit</SubmitButton>
+        
+        <Link to='/signuppage' className="loglink" >
+          <h3>Dont have an account yet?</h3>
+        </Link>
+      </form>
+    </Body>
+
+      
   );
 }
 
