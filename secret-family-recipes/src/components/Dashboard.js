@@ -5,7 +5,7 @@ import { axiosWithAuth } from '../utils/axiosWithAuth'
 import Navigation from './Navigation';
 import MyRecipes from './MyRecipes';
 
-function Dashboard() {
+function Dashboard(props) {
   const [recipes, setRecipes] = useState([])
 
   useEffect(() => {
@@ -18,9 +18,18 @@ function Dashboard() {
     .catch(error=> console.log(error));
   }, []);
 
+  const logout = (event) => {
+    event.preventDefault();
+
+    localStorage.removeItem('token');
+    localStorage.removeItem('user_id');
+
+    props.history.push('/')
+}
+
   return (
     <div className="Dashboard">
-      <Navigation />
+      <Navigation logout={logout}/>
       <MyRecipes recipes={recipes} setRecipes={setRecipes} />
     </div>
   );
