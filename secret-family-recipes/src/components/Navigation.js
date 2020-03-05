@@ -20,8 +20,8 @@ const Navigation = () => {
     <div>
       <div className="App">
       <NavBar>
-        <h2 className="Logo">Secret Family Recipes</h2>
-    
+          <h2 className="Logo">Secret Family Recipes</h2>
+      
         <NavBarLink>
         <div>
           <Link className="navlink" to="/Dashboard">Dashboard</Link>

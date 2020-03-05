@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useForm } from 'react-hook-form'
 import { connect } from 'react-redux';
-import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 
 const RecipeHolder = styled.div `
@@ -11,11 +10,11 @@ const RecipeHolder = styled.div `
     justify-content: flex-start;
     align-items: flex-start;
     max-width: 900px;
-    margin-left: 7rem;
+    margin-left: 2rem;
 `;
 
 const Title = styled.h2 `
-    margin-left: 14rem;
+    margin-left: 2rem;
 `;
 
 const Ingredients = styled.div `
@@ -24,15 +23,14 @@ const Ingredients = styled.div `
 
 const AddButton = styled.button `
     display:block;
-    background:none;
-    border:none;
-    margin:0;
-    padding:0;
+    background-color: #BE6360;
+    border-color: #9C8D84;
+    padding: 0.25rem 1rem 0.25rem 1rem;
     cursor: pointer;
     color: #4A3731;
     font-weight: bold;
     &:hover {
-        color: #d97471;
+        background-color: #d97471;
     }
 `;
 
