@@ -47,10 +47,6 @@ const Title = styled.h2 `
     margin-left: 2rem;
 `;
 
-const Title = styled.h2 `
-    margin-left: 2rem;
-`;
-
 const Ingredients = styled.div `
     display: flex;
     @media(max-width:800px) {

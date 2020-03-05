@@ -8,7 +8,6 @@ const NavBar= styled.div `
     justify-content: space-evenly;
     background-color: #d97471;
     border-bottom: 3px solid #4A3731;
-    //margin-bottom: 10px;
     @media(max-width:750px) {
       flex-direction: column;
     }
@@ -61,21 +60,6 @@ const Navigation = () => {
               </div>
             </NavBarLink>
           </LinkHolder>
-      <NavBar>
-          <h2 className="Logo">Secret Family Recipes</h2>
-      
-        <NavBarLink>
-        <div>
-          <Link className="navlink" to="/Dashboard">Dashboard</Link>
-        </div>
-        </NavBarLink>
-    
-        <NavBarLink>
-        <div>
-          <Link className="navlink" to="/">Logout</Link>
-        </div>
-        </NavBarLink>
-
         </NavBar>
       </div>
     </div>
