@@ -3,7 +3,6 @@ import styled from "styled-components";
 import AddRecipes from './AddRecipes';
 import Card6 from "../images/card6.jpg";
 
-
 const SearchHolder =styled.div `
   align-items: center;
   padding: 2rem;
