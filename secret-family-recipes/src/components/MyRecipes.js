@@ -2,12 +2,25 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AddRecipes from './AddRecipes';
 
+const SearchHolder =styled.div `
+align-items: center;
+margin: 1rem;
+margin-left: .5rem;
+padding-left: 2rem;
+width: 50%;
+font-size: 1.2rem;
+;`
+
 const RecipeHolder = styled.div `
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 3%;
-  padding-left: 3rem;
+  margin: 2rem;
+  margin-left: 21%;
+  padding-left: 3%;
+  padding-right: 3%;
   border-radius: 10px;
+  width: 50%;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 `;
 
@@ -29,7 +42,7 @@ export default function MyRecipes(props) {
   return (
     <section className="recipe-list">
       <form className="search">
-        <label htmlFor="search">Find recipe:&#8201;
+        <SearchHolder><label htmlFor="search">Find recipe:&#8201;
         <input
           id="search"
           type="text"
@@ -42,6 +55,7 @@ export default function MyRecipes(props) {
           autoComplete="off"
         />
         </label>
+        </SearchHolder>
       </form>
       <div>
         {props.recipes.map(item => (
