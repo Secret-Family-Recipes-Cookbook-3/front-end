@@ -37,7 +37,7 @@ const LinkHolder = styled.div `
     }
 `;
 
-const Navigation = (props) => {
+const Navigation = () => {
   return (
     <div>
       <div className="App">
@@ -56,7 +56,7 @@ const Navigation = (props) => {
         
             <NavBarLink>
               <div>
-                <Link className="navlink" onClick={props.logout}>Logout</Link>
+                <Link className="navlink" to="/">Logout</Link>
               </div>
             </NavBarLink>
           </LinkHolder>
