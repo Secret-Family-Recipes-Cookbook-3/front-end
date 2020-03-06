@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { RecipeHolder2, RecipeCard, Title, Ingredients, AddButton, SubmitButton } from "../styled/StyledComponents";
 import { useForm } from 'react-hook-form'
 import { connect } from 'react-redux';
+import { addRecipe } from '../actions/recipeActions';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const AddRecipes = () => {
+const AddRecipes = ({ addRecipe }) => {
 
     const blankRecipe = {name: "", quantity: 0, units: "" };
     const [ingredients, setIngredients] = useState([{
@@ -15,8 +16,9 @@ const AddRecipes = () => {
 
     const { register, handleSubmit, watch, errors, reset } = useForm();
 
-    const onSubmit = data => {
-        //dipsatch action creator
+    const onSubmit = value => {
+        console.log(value)
+        addRecipe(value)
     }
     
     const addNewRow = () => {
@@ -124,9 +126,8 @@ const mapStateToProps = state => {
     }
 }
 
-
 export default connect(
     mapStateToProps,
-    {}
+    {addRecipe}
 )(AddRecipes);
 

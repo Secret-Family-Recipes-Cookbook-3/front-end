@@ -11,13 +11,12 @@ import {NavBar, SearchHolder, RecipeHolder, Wrapper} from '../styled/StyledCompo
 const MyRecipes = (props) => {
     const [query, setQuery] = useState("");
 
-  // props.getData()
   useEffect(() => {
-    const recipesList = props.recipes.filter(rec =>
+    props.getData()
+    const recipesList = props.storedRecipes.filter(rec =>
       rec.title.toLowerCase().includes(query.toLowerCase())
     )
     props.setRecipes(recipesList);
-
   }, [query]);
 
   const handleInputChange = event => {
@@ -44,7 +43,7 @@ const MyRecipes = (props) => {
         </form>
       </SearchHolder>
       <Wrapper>
-        {props.recipes.map(item => (
+        {props.storedRecipes.map(item => (
           <Recipe key={item.id} title={item.title} source={item.source}/>
         ))}
       </Wrapper>
@@ -53,4 +52,13 @@ const MyRecipes = (props) => {
   );
 }
 
-export default MyRecipes
+const mapStateToProps = state => {
+  return{
+      storedRecipes: state.storedRecipes
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  {getData}
+)(MyRecipes);

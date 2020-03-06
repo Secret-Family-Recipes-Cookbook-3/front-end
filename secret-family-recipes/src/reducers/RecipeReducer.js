@@ -9,7 +9,7 @@ const initialState = {
       "password": " "
     }
   ],
-  recipes: [
+  storedRecipes: [
     {
       "id": 0,
       "title": " ",
@@ -29,15 +29,15 @@ const initialState = {
 
 export const recipesReducer = (state = initialState, action) => {
   switch(action.type){
-    case GET_RECIPES:
-      return {
-        ...state,
-        recipes: action.payload
-      }
     case LOGIN:
       return {
         ...state,
         token: action.payload
+      }
+    case GET_RECIPES:
+      return {
+        ...state,
+        storedRecipes: action.payload
       }
     case "ADD_RECIPE":
       const newRecipe = {
