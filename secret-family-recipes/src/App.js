@@ -1,5 +1,5 @@
 import React from 'react';
-// import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 
 import SignUpPage from './components/SignUpPage';
@@ -15,7 +15,7 @@ function App() {
     <Switch>
       <PrivateRoute path="/dashboard" component={Dashboard}/>
       <Route exact path='/' component={LoginPage} />
-      <Route path='/myrecipes' component={MyRecipes} />
+      <PrivateRoute path='/myrecipes' component={MyRecipes} />
       <Route path='/signuppage' component={SignUpPage} />
     </Switch>
     </div>

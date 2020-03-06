@@ -2,6 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, Link } from 'react-router-dom';
 // import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { login } from '../actions/recipeActions'
+import { connect } from 'react-redux'
 import axios from 'axios';
 import styled from "styled-components";
 import Logo from "../images/logo.png";
@@ -55,19 +57,16 @@ const Body = styled.div `
 
 const FormHolder = styled.div
 
-function LoginPage(props) {
+function LoginPage({login, token}) {
+
   const {handleSubmit, register, errors} = useForm();
   const history = useHistory();
 
   const onSubmit = value => {
-    console.log(value)
-    axios.post('https://secret-family-recipes-cookbook.herokuapp.com/api/auth/login', value)
-    .then(response => {
-        console.log(response);
-        window.localStorage.setItem('token', response.data.token)
-        history.push('/Dashboard')
-    })
-    .catch(err => console.log(err)); 
+    console.log("first click")
+    login(value)
+    window.localStorage.setItem('token', token)
+    history.push('/dashboard')
   }
 
   return (
@@ -124,5 +123,15 @@ function LoginPage(props) {
 
   );
 }
+;
+const mapStateToProps = state => {
+  return{
+    token: state.token,
+    recipes: state.recipes
+  }
+}
 
-export default LoginPage;
+export default connect(
+  mapStateToProps,
+  {login}
+)(LoginPage);

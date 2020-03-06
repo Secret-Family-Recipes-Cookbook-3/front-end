@@ -1,52 +1,21 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AddRecipes from './AddRecipes';
-import Card6 from "../images/card6.jpg";
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { getData } from '../actions/recipeActions';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import {NavBar, SearchHolder, RecipeHolder, Wrapper} from '../styled/StyledComponents'
 
-const SearchHolder =styled.div `
-  align-items: center;
-  padding: 2rem;
-  margin-left: 1rem;
-  padding-left: 2rem;
-  width: 50%;
-  font-size: 1.2rem;
-`;
-
-const RecipeHolder = styled.div `
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin: 1%;
-    padding-left: 3%;
-    padding-top: 1rem;
-    padding-bottom: 2rem;
-    border-radius: 10px;
-    width: 28%;
-    box-shadow: 0 6px 15px rgba(170, 170, 170, 0.3), 0 15px 12px rgba(170, 170, 170, 0.22);
-    background-image: url(${Card6});
-    @media(max-width:900px) {
-      width: 45%;
-    }
-    @media(max-width:600px) {
-      width: 90%;
-    }
-`;
-
-
-const Wrapper = styled.div `
-    display: flex;
-    flex-wrap: wrap;
-     margin-left: 2rem;
-`;
-
-export default function MyRecipes(props) {
+const MyRecipes = (props) => {
     const [query, setQuery] = useState("");
 
+  // props.getData()
   useEffect(() => {
-        const recipesList = props.recipes.filter(rec =>
-          rec.title.toLowerCase().includes(query.toLowerCase())
-        );
-        props.setRecipes(recipesList);
+    const recipesList = props.recipes.filter(rec =>
+      rec.title.toLowerCase().includes(query.toLowerCase())
+    )
+    props.setRecipes(recipesList);
 
   }, [query]);
 
@@ -87,3 +56,5 @@ export default function MyRecipes(props) {
     </section>
   );
 }
+
+export default MyRecipes
