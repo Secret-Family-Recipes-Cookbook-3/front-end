@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AddRecipes from './AddRecipes';
+import Recipe from './Recipe';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { getData } from '../actions/recipeActions';
@@ -44,12 +45,7 @@ const MyRecipes = (props) => {
       </SearchHolder>
       <Wrapper>
         {props.recipes.map(item => (
-          <RecipeHolder key={item.id} >
-            <div>
-              <h2>{item.title}</h2>
-              <p>From my beloved {item.source}</p>
-            </div>
-          </RecipeHolder>
+          <Recipe key={item.id} title={item.title} source={item.source}/>
         ))}
       </Wrapper>
       <AddRecipes />
