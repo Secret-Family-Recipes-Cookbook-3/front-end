@@ -5,57 +5,57 @@ import { useHistory, Link } from 'react-router-dom';
 import { login } from '../actions/recipeActions'
 import { connect } from 'react-redux'
 import axios from 'axios';
-import styled from "styled-components";
+import { NavBar2, SubmitButton2, LogoImg2, LogoHolder2, Login, Body } from "../styled/StyledComponents";
 import Logo from "../images/logo.png";
-import Loginbg from "../images/loginbg.jpg";
 
-const NavBar2= styled.div `
-    background-color: #d97471;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 30px;
-    border-bottom: 3px solid #4A3731;
-    margin-bottom: 10px;
-`;
 
-const SubmitButton = styled.button `
-    background-color: #BE6360;
-    color: #4A3731;
-    border-color: #9C8D84;
-    font-weight: bold;
-    margin: 0.5rem 0 0 0;
-    padding: 0.1rem 1.2rem 0.1rem 1.2rem;
-    &:hover {
-        background-color: #d97471;
-    }
-`;
+// const NavBar2= styled.div `
+//     background-color: #d97471;
+//     padding-top: 3px;
+//     padding-bottom: 3px;
+//     padding-left: 30px;
+//     border-bottom: 3px solid #4A3731;
+//     margin-bottom: 10px;
+// `;
 
-const LogoImg = styled.img `
-  max-width: 100px;
-  height: auto;
-  margin-right: 2rem;
-`;
+// const SubmitButton2 = styled.button `
+//     background-color: #BE6360;
+//     color: #4A3731;
+//     border-color: #9C8D84;
+//     font-weight: bold;
+//     margin: 0.5rem 0 0 0;
+//     padding: 0.1rem 1.2rem 0.1rem 1.2rem;
+//     &:hover {
+//         background-color: #d97471;
+//     }
+// `;
 
-const LogoHolder = styled.div `
-  display: flex;
-`;
+// const LogoImg2 = styled.img `
+//   max-width: 100px;
+//   height: auto;
+//   margin-right: 2rem;
+// `;
 
-const Login = styled.h1 `
-    margin-left: 30%;
-`;
+// const LogoHolder2 = styled.div `
+//   display: flex;
+// `;
 
-const Body = styled.div `
-    background-image: url(${Loginbg});
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    padding-bottom: 3rem;
-    width: 100%;
-    min-height: 94.9vh;
-`;
+// const Login = styled.h1 `
+//     margin-left: 30%;
+// `;
 
-const FormHolder = styled.div
+// const Body = styled.div `
+//     background-image: url(${Loginbg});
+//     background-repeat: no-repeat;
+//     background-attachment: fixed;
+//     background-position: center;
+//     background-size: cover;
+//     padding-bottom: 3rem;
+//     width: 100%;
+//     min-height: 94.9vh;
+// `;
+
+// const FormHolder = styled.div
 
 function LoginPage({login, token}) {
 
@@ -72,11 +72,11 @@ function LoginPage({login, token}) {
   return (
     <Body>
       <NavBar2>
-        <LogoHolder>
-          <LogoImg src={Logo} alt="cherry pie logo" />
+        <LogoHolder2>
+          <LogoImg2 src={Logo} alt="cherry pie logo" />
           <h2 className="Logo">Secret Family Recipes</h2>
           <Login className="Logo">LOG IN</Login>
-        </LogoHolder>  
+        </LogoHolder2>  
       </NavBar2>
 
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -114,7 +114,7 @@ function LoginPage({login, token}) {
         </label>
         {errors.password && errors.password.message}
 
-        <SubmitButton type="submit">Submit</SubmitButton>
+        <SubmitButton2 type="submit">Submit</SubmitButton2>
       <Link to='/signuppage' >
         <h3>Dont have an account yet?</h3>
       </Link>

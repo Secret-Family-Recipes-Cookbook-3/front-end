@@ -16,7 +16,7 @@ const AddRecipes = () => {
     const { register, handleSubmit, watch, errors, reset } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
+        //dipsatch action creator
     }
     
     const addNewRow = () => {
@@ -122,10 +122,7 @@ const mapStateToProps = state => {
     return{
         recipes: state.recipes
     }
-
 }
-
-
 
 
 export default connect(

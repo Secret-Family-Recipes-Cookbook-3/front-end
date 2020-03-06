@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import Card6 from "../images/card6.jpg";
 import Card2 from "../images/card2.jpg";
+import Loginbg from "../images/loginbg.jpg";
 
 export const NavBar = styled.div `
     display: flex;
@@ -144,3 +145,50 @@ export const SubmitButton = styled.button `
         background-color: #d97471;
     }
 `;
+
+export const NavBar2= styled.div `
+    background-color: #d97471;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 30px;
+    border-bottom: 3px solid #4A3731;
+    margin-bottom: 10px;
+`;
+
+export const SubmitButton2 = styled.button `
+    background-color: #BE6360;
+    color: #4A3731;
+    border-color: #9C8D84;
+    font-weight: bold;
+    margin: 0.5rem 0 0 0;
+    padding: 0.1rem 1.2rem 0.1rem 1.2rem;
+    &:hover {
+        background-color: #d97471;
+    }
+`;
+
+export const LogoImg2 = styled.img `
+  max-width: 100px;
+  height: auto;
+  margin-right: 2rem;
+`;
+
+export const LogoHolder2 = styled.div `
+  display: flex;
+`;
+
+export const Body = styled.div `
+    background-image: url(${Loginbg});
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 3rem;
+    width: 100%;
+    min-height: 94.9vh;
+`;
+
+export const Login = styled.h1 `
+    margin-left: 30%;
+`;
+
