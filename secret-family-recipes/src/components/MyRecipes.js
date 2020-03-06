@@ -3,20 +3,21 @@ import styled from "styled-components";
 import Recipe from './Recipe';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { getData } from '../actions/recipeActions';
+import { getData, deleteRecipe } from '../actions/recipeActions';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import {NavBar, SearchHolder, RecipeHolder, Wrapper} from '../styled/StyledComponents'
 
-const MyRecipes = (props) => {
+const MyRecipes = ({ getData, deleteRecipe, storedRecipes}) => {
     const [query, setQuery] = useState("");
+    const [updatedRecipes, setUpdatedRecipes] = useState(storedRecipes)
 
   useEffect(() => {
-    props.getData()
-    const recipesList = props.storedRecipes.filter(rec =>
+    getData()
+    const recipesList = storedRecipes.filter(rec =>
       rec.title.toLowerCase().includes(query.toLowerCase())
     )
     // props.setRecipes(recipesList);
-  }, [query]);
+  }, [updatedRecipes]);
 
   const handleInputChange = event => {
     setQuery(event.target.value);
@@ -45,8 +46,8 @@ const MyRecipes = (props) => {
         </form>
       </SearchHolder>
       <Wrapper>
-        {props.storedRecipes.map(item => (
-          <Recipe key={item.id} title={item.title} source={item.source}/>
+        {storedRecipes.map(item => (
+          <Recipe delete={deleteRecipe} Id={item.id} title={item.title} source={item.source}/>
         ))}
       </Wrapper>
 
@@ -62,5 +63,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {getData}
+  {getData, deleteRecipe}
 )(MyRecipes);

@@ -38,7 +38,13 @@ const AddRecipes = ({ userId, addRecipe, storedRecipes }) => {
             "user_id": userId
         }
         console.log(value.title)
-        addRecipe(recipeObj)
+        addRecipe({
+            "id": storedRecipes.length,
+            "title": value.title,
+            "source": value.source,
+            "category_id": Math.floor(Math.random() * Math.floor(3)),
+            "user_id": userId
+        })
         reset()
     }
     

@@ -6,6 +6,7 @@ export const TRACK_USER = 'TRACK_USER'
 export const GET_RECIPES = 'GET_RECIPES'
 export const ADD_RECIPE = 'ADD_RECIPE'
 export const ADD_CATEGORY = 'ADD_CATEGORY'
+export const DELETE_RECIPE = 'DELETE_RECIPE'
 
 export const login = (creds) => dispatch => {
   axiosWithAuth()
@@ -19,7 +20,16 @@ export const login = (creds) => dispatch => {
     .catch(err => console.log(err))
 }
 
+export const deleteRecipe = (recipeId) => dispatch => {
+  axiosWithAuth()
+    .delete(`https://secret-family-recipes-cookbook.herokuapp.com/api/recipes/${recipeId}`)
+    .then(res => {
+      console.log(res)
+      return dispatch({type: DELETE_RECIPE, payload: res.data})
+    })
+    .catch(err => console.log(err))
 
+}
 
 export const getData = () => dispatch => {
   axiosWithAuth()
@@ -31,6 +41,7 @@ export const getData = () => dispatch => {
 }
 
 export const addRecipe = (recipe) => dispatch => {
+  console.log(recipe)
   axiosWithAuth()
     .post('https://secret-family-recipes-cookbook.herokuapp.com/api/recipes', recipe)
     .then(res => {

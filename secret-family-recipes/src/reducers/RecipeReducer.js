@@ -1,4 +1,4 @@
-import {LOGIN, GET_RECIPES, TRACK_USER, ADD_RECIPE} from '../actions/recipeActions'
+import {LOGIN, GET_RECIPES, TRACK_USER, ADD_RECIPE, DELETE_RECIPE} from '../actions/recipeActions'
 
 const initialState = {
   token: "",
@@ -49,6 +49,11 @@ export const recipesReducer = (state = initialState, action) => {
       return {
         ...state,
         storedRecipes: [...state.storedRecipes, action.payload]
+      }
+    case DELETE_RECIPE:
+      return {
+        ...state,
+        storedRecipes: action.payload
       }
     default:
       return state;

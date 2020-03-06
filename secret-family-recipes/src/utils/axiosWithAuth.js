@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 export const axiosWithAuth = (props) => {
   const token = window.localStorage.getItem('token')
-  
+
   return axios.create({
     headers: {
       authorization: token
-    }
-    // baseUrl: 'https://secret-family-recipes-cookbook.herokuapp.com/api/'
+    },
+    baseUrl: 'https://secret-family-recipes-cookbook.herokuapp.com/api/'
   }) 
 }
 
