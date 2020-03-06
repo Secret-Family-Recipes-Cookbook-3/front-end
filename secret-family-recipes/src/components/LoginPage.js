@@ -8,7 +8,7 @@ import axios from 'axios';
 import { NavBar2, SubmitButton2, LogoImg2, LogoHolder2, Login, Body } from "../styled/StyledComponents";
 import Logo from "../images/logo.png";
 
-function LoginPage({login, token}) {
+function LoginPage({userId, login, token}) {
 
   const {handleSubmit, register, errors} = useForm();
   const history = useHistory();
@@ -17,6 +17,7 @@ function LoginPage({login, token}) {
     console.log("baby, click me one more time!")
     login(value)
     window.localStorage.setItem('token', token)
+    window.localStorage.setItem('userId', userId)
     history.push('/dashboard')
   }
 
@@ -78,7 +79,8 @@ function LoginPage({login, token}) {
 const mapStateToProps = state => {
   return{
     token: state.token,
-    recipes: state.recipes
+    userId: state.userId,
+    storedRecipes: state.storedRecipes
   }
 }
 

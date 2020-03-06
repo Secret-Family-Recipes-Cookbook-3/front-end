@@ -5,11 +5,12 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import {recipesReducer} from './reducers/RecipeReducer'
 import thunk from 'redux-thunk';
+import multi from 'redux-multi'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(recipesReducer, applyMiddleware(thunk) );
+const store = createStore(recipesReducer, applyMiddleware(thunk, multi) );
 
 ReactDOM.render(
 <Provider store={store}>

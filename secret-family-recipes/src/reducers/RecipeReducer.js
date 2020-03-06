@@ -1,7 +1,8 @@
-import {LOGIN, GET_RECIPES} from '../actions/recipeActions'
+import {LOGIN, GET_RECIPES, TRACK_USER, ADD_RECIPE} from '../actions/recipeActions'
 
 const initialState = {
   token: "",
+  userId: 0,
   users: [
     {
       "id": 0, 
@@ -34,26 +35,20 @@ export const recipesReducer = (state = initialState, action) => {
         ...state,
         token: action.payload
       }
+    case TRACK_USER:
+      return {
+        ...state,
+        userId: action.payload
+      }
     case GET_RECIPES:
       return {
         ...state,
         storedRecipes: action.payload
       }
-    case "ADD_RECIPE":
-      const newRecipe = {
-        title: '', 
-        source: ' ', 
-        ingredients: ' ', 
-        instructions: '', 
-        category: ' '
-       }
+    case ADD_RECIPE:
       return {
         ...state,
-        recipes: [...state.recipes, newRecipe]
-      }
-    case "ADD_INGREDIENTS":
-      return {
-
+        storedRecipes: [...state.storedRecipes, action.payload]
       }
     default:
       return state;

@@ -5,26 +5,43 @@ import { connect } from 'react-redux';
 import { addRecipe } from '../actions/recipeActions';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-const AddRecipes = ({ addRecipe }) => {
-
-    const blankRecipe = {name: "", quantity: 0, units: "" };
-    const [ingredients, setIngredients] = useState([{
-        name: "", 
-        quantity: 0,
-        units: ""
-    },]);
+const AddRecipes = ({ userId, addRecipe, storedRecipes }) => {
 
     const { register, handleSubmit, watch, errors, reset } = useForm();
+    // const blankRecipe = {name: "", quantity: 0, units: "" };
+    // const [newRecipe, setNewRecipe] = useState({
+        // "id": 1,
+        // "title": "cheeseburgers",
+        // "source": "aunt joy",
+        // "category_id": 1,
+        // "user_id": 1
+    // })
+    
+    // const handleChanges = (e) => {
+    //     e.preventDefault();
+    //     setNewRecipe({...newRecipe, [e.target.name]: e.target.value})
+    //   }
+
+    // const [ingredients, setIngredients] = useState([{
+    //     name: "", 
+    //     quantity: 0,
+    //     units: ""
+    // },]);
 
     const onSubmit = value => {
-        console.log(value)
-        addRecipe(value)
+        console.log(userId) //Id here shows redux-multi worked
+        const recipeObj = {
+            "id": storedRecipes.length,
+            "title": value.title,
+            "source": value.source,
+            "category_id": Math.floor(Math.random() * Math.floor(3)),
+            "user_id": userId
+        }
+        console.log(value.title)
+        addRecipe(recipeObj)
+        reset()
     }
     
-    const addNewRow = () => {
-        setIngredients([...ingredients, {...blankRecipe}]);
-      };
-
     return (
         <div>
         <RecipeCard>
@@ -42,7 +59,7 @@ const AddRecipes = ({ addRecipe }) => {
                     />
                     {errors.title && <span className="error">This field is required</span>}
                     </label>
-                    <label htmlFor="category">Category: 
+                    {/* <label htmlFor="category">Category: 
                     <input
                         ref={register}
                         id="category"
@@ -51,7 +68,7 @@ const AddRecipes = ({ addRecipe }) => {
                         placeholder="Salad"
                         className="input"
                     />
-                    </label>
+                    </label> */}
                     <label htmlFor="source">Source:&#8201;&#8201;&#8201;&#8201; 
                     <input
                         ref={register}
@@ -62,7 +79,7 @@ const AddRecipes = ({ addRecipe }) => {
                         className="input"
                     />
                     </label>
-                    <h3>Ingredients:</h3>
+                    {/* <h3>Ingredients:</h3>
                     { 
                         ingredients.map((val, idx) => {
                             const nameID = `name-${idx}`;
@@ -110,8 +127,8 @@ const AddRecipes = ({ addRecipe }) => {
         
             <AddButton onClick = {addNewRow}>Add ingredient</AddButton>
                     <h3>Steps:</h3>
-                    <textarea ref={register}  className="steps" type="text" name="steps" placeholder="Preheat the oven" />
-                    <SubmitButton onClick={reset} type="submit" className="submitbutton">Submit</SubmitButton>
+                    <textarea ref={register}  className="steps" type="text" name="steps" placeholder="Preheat the oven" /> */}
+                    <SubmitButton type="submit" className="submitbutton">Submit</SubmitButton>
                 </RecipeHolder2>  
             </form>
         </RecipeCard>
@@ -122,7 +139,8 @@ const AddRecipes = ({ addRecipe }) => {
 
 const mapStateToProps = state => {
     return{
-        recipes: state.recipes
+        userId: state.userId,
+        storedRecipes: state.storedRecipes
     }
 }
 

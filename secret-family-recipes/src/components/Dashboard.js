@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import RecipeCard from './RecipeDetails';
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 import { connect } from 'react-redux';
-import { login } from '../actions/recipeActions';
+import { getData } from '../actions/recipeActions';
 import Navigation from './Navigation';
 import AddRecipes from './AddRecipes';
 import MyRecipes from './MyRecipes';
@@ -17,12 +17,13 @@ function Dashboard(props) {
       setRecipes(response.data)
     })
     .catch(err => console.log(err))
+    // props.getData()
   }, []);
 
   const logout = (event) => {
     event.preventDefault();
     localStorage.removeItem('token');
-    localStorage.removeItem('user_id');
+    localStorage.removeItem('userId');
     props.history.push('/')
   }
 
@@ -35,4 +36,14 @@ function Dashboard(props) {
   );
 }
 
-export default Dashboard
+// export default Dashboard
+const mapStateToProps = state => {
+  return{
+    storedRecipes: state.storedRecipes
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  {getData}
+)(Dashboard);
