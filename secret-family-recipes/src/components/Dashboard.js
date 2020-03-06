@@ -4,6 +4,7 @@ import { axiosWithAuth } from '../utils/axiosWithAuth'
 import { connect } from 'react-redux';
 import { login } from '../actions/recipeActions';
 import Navigation from './Navigation';
+import AddRecipes from './AddRecipes';
 import MyRecipes from './MyRecipes';
 
 function Dashboard(props) {
@@ -28,7 +29,8 @@ function Dashboard(props) {
   return (
     <div className="Dashboard">
       <Navigation logout={logout}/>
-      <MyRecipes recipes={recipes} setRecipes={setRecipes}/>
+      {/* <MyRecipes recipes={recipes} setRecipes={setRecipes}/> */}
+      <AddRecipes />
     </div>
   );
 }

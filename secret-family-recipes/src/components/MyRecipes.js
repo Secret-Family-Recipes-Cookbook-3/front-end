@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import AddRecipes from './AddRecipes';
 import Recipe from './Recipe';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
@@ -16,7 +15,7 @@ const MyRecipes = (props) => {
     const recipesList = props.storedRecipes.filter(rec =>
       rec.title.toLowerCase().includes(query.toLowerCase())
     )
-    props.setRecipes(recipesList);
+    // props.setRecipes(recipesList);
   }, [query]);
 
   const handleInputChange = event => {
@@ -26,6 +25,9 @@ const MyRecipes = (props) => {
   return (
     <section id="recipe-list">
       <SearchHolder>
+        <Link to='/dashboard'>
+          <h3>back to dashboard</h3>
+        </Link>
         <form className="search">
           <label htmlFor="search">Find recipe:&#8201;
           <input
@@ -47,7 +49,7 @@ const MyRecipes = (props) => {
           <Recipe key={item.id} title={item.title} source={item.source}/>
         ))}
       </Wrapper>
-      <AddRecipes />
+
     </section>
   );
 }

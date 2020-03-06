@@ -15,6 +15,11 @@ const Navigation = (props) => {
           </LogoHolder>
           
           <LinkHolder>
+          <NavBarLink>
+              <div>
+                <Link className="navlink" to='/myrecipes'>myrecipes</Link>
+              </div>
+            </NavBarLink>
             <NavBarLink>
               <div>
                 <Link className="navlink" onClick={props.logout}>Logout</Link>

@@ -14,7 +14,6 @@ export const login = (creds) => dispatch => {
     .catch(err => console.log(err))
 }
 
-
 export const getData = () => dispatch => {
   axiosWithAuth()
     .get('https://secret-family-recipes-cookbook.herokuapp.com/api/recipes')
