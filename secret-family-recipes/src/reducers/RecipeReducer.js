@@ -1,29 +1,29 @@
-const initialState = {
-  recipes: [
-    {title: '', source: ' ', ingredients: ' ', instructions: '', category: ' ' }
-  ]
-}
+// const initialState = {
+//   recipes: [
+//     {title: '', source: ' ', ingredients: ' ', instructions: '', category: ' ' }
+//   ]
+// }
 
-export const recipesReducer = (state = initialState, action) => {
-  switch(action.type){
+// export const recipesReducer = (state = initialState, action) => {
+//   switch(action.type){
 
-    case "ADD_RECIPE":
-      const newRecipe = {
-        title: '', 
-        source: ' ', 
-        ingredients: ' ', 
-        instructions: '', 
-        category: ' '
-       }
-      return {
-        ...state,
-        recipes: [...state.recipes, newRecipe]
-      }
-    case "ADD_INGREDIENTS":
-      return {
+//     case "ADD_RECIPE":
+//       const newRecipe = {
+//         title: '', 
+//         source: ' ', 
+//         ingredients: ' ', 
+//         instructions: '', 
+//         category: ' '
+//        }
+//       return {
+//         ...state,
+//         recipes: [...state.recipes, newRecipe]
+//       }
+//     case "ADD_INGREDIENTS":
+//       return {
 
-      }
-    default:
-      return state;
-  }
-}
+//       }
+//     default:
+//       return state;
+//   }
+// }

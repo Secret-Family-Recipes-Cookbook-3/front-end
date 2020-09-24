@@ -10,7 +10,7 @@ function Dashboard() {
 
   useEffect(() => {
     axiosWithAuth()
-    .get('https://family-recipes-backend-proj.herokuapp.com/')
+    .get('https://family-recipes-backend-proj.herokuapp.com/api/recipes')
     .then(response => {
       console.log(response.data)
       setRecipes(response.data)

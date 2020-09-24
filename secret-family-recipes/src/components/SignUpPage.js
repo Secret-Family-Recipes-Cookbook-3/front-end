@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 import styled from "styled-components";
 import Signupbg from "../images/signupbg.jpg";
 import Logo from "../images/logo.png";
@@ -73,7 +73,8 @@ function SignUpPage (props) {
   const {handleSubmit, register, errors, reset} = useForm();
 
   const onSubmit = value => {
-    axios.post('https://family-recipes-backend-proj.herokuapp.com/api/auth/register', value)
+    axiosWithAuth()
+    .post('https://family-recipes-backend-proj.herokuapp.com/api/auth/register', value)
     .then(response => {
         console.log(response);
         alert('successfully registered!')
