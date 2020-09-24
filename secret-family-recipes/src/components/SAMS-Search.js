@@ -6,7 +6,7 @@
 
 // useEffect(() => {
 //   axios
-//   .get(`https://secret-family-recipes-cookbook.herokuapp.com/api/recipes`)
+//   .get(`https://family-recipes-backend-proj.herokuapp.com/api/recipes`)
 //   .then(response => {
 //     console.log("recipes", response);
 //     const recipesList = response.filter(rec =>

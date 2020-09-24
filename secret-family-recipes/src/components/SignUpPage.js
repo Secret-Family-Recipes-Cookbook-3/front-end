@@ -73,7 +73,7 @@ function SignUpPage (props) {
   const {handleSubmit, register, errors, reset} = useForm();
 
   const onSubmit = value => {
-    axios.post('https://secret-family-recipes-cookbook.herokuapp.com/api/auth/register', value)
+    axios.post('https://family-recipes-backend-proj.herokuapp.com/api/auth/register', value)
     .then(response => {
         console.log(response);
         alert('successfully registered!')
