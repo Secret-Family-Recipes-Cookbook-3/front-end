@@ -1,8 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-// import { axiosWithAuth } from '../utils/axiosWithAuth';
-import axios from 'axios';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 import styled from "styled-components";
 import Logo from "../images/logo.png";
 import Loginbg from "../images/loginbg.jpg";
@@ -71,15 +70,14 @@ const Body = styled.div `
     min-height: 94.9vh;
 `;
 
-const FormHolder = styled.div
-
 function LoginPage(props) {
   const {handleSubmit, register, errors} = useForm();
   const history = useHistory();
 
   const onSubmit = value => {
     console.log(value)
-    axios.post('https://family-recipes-backend-proj.herokuapp.com/api/auth/login', value)
+    axiosWithAuth()
+    .post('https://family-recipes-backend-proj.herokuapp.com/api/auth/login', value)
     .then(response => {
         console.log(response);
         window.localStorage.setItem('token', response.data.token)
